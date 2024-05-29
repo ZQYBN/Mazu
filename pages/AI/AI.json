@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "xr-basic-alpha": "../../components/xr-basic-alpha/index"
+  }
+}

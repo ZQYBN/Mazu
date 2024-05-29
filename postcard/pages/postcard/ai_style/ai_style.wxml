@@ -1,0 +1,64 @@
+<!--pages/postcard/ai_style/ai_style.wxml-->
+<view style="background-color: rgb(255, 255, 255);">
+    <view style="width:750rpx;height:{{statusBarHeight}}px"></view>
+    <view class="title" style="width:750rpx;height:{{titleHeight}}px">
+        <view style="position: fixed;left: 10px;margin-top: 5px;">
+            <van-icon name="arrow-left" size="20px" color="black" bind:click="back_page" />
+        </view>
+        选择AI风格
+    </view>
+</view>
+
+<scroll-view class="mycontainer" scroll-y show-scrollbar="{{true}}">
+    <!-- 示例预览原始图片 -->
+    <view class="show_picture">
+        <text class="text" style="font-size: 23px;">示例图片</text>
+        <image style="height:420rpx;width:100%;" src="cloud://cloud1-7g5vke1x7dd05544.636c-cloud1-7g5vke1x7dd05544-1325794133/明信片页面/示例图片.jpg"></image>
+    </view>
+    <!-- ai风格选择 -->
+    <view class="ai_style">
+        <text class="text"  style="font-size: 23px;">风格选择</text>
+        <van-row gutter="20" class="photo">
+            <van-col span="12">
+                <van-image fit="cover" class="{{is_select[0]==1?'is_select':''}}" bind:click="ai_style01" width="340rpx" height="255rpx" src="cloud://cloud1-7g5vke1x7dd05544.636c-cloud1-7g5vke1x7dd05544-1325794133/明信片页面/写实风.jpg" />
+                <view class="text">写实风格</view>
+            </van-col>
+            <van-col span="12">
+                <van-image fit="cover" class="{{is_select[1]==1?'is_select':''}}" bind:click="ai_style02" width="340rpx" height="255rpx" src="cloud://cloud1-7g5vke1x7dd05544.636c-cloud1-7g5vke1x7dd05544-1325794133/明信片页面/山水风.jpg" />
+                <view class="text">水墨山水</view>
+            </van-col>
+        </van-row>
+        <van-row gutter="20" class="photo">
+            <van-col span="12">
+                <van-image fit="cover" class="{{is_select[2]==1?'is_select':''}}" bind:click="ai_style03" width="340rpx" height="255rpx" src="cloud://cloud1-7g5vke1x7dd05544.636c-cloud1-7g5vke1x7dd05544-1325794133/明信片页面/动漫风.jpg" />
+                <view class="text">动漫风格</view>
+            </van-col>
+            <van-col span="12">
+                <van-image fit="cover" class="{{is_select[3]==1?'is_select':''}}" bind:click="ai_style04" width="340rpx" height="255rpx" src="cloud://cloud1-7g5vke1x7dd05544.636c-cloud1-7g5vke1x7dd05544-1325794133/明信片页面/炫彩风.jpg" />
+                <view class="text">炫彩风格</view>
+            </van-col>
+        </van-row>
+    </view>
+
+    <view class="tips">
+        <van-row>
+            <van-col span="24" style="color: white;">
+                * 注意事项
+            </van-col>
+            <van-col span="24" style="font-size: 12px; color: white;">
+                1、建议使用人脸或风景清晰照片
+            </van-col>
+            <van-col span="24" style="font-size: 12px; color: white;">
+                2、如因AI切换风格导致人像偏移请见谅
+            </van-col>
+            <van-col span="24" style="font-size: 12px; color: white;">
+                3、上传图片不要太大
+            </van-col>
+        </van-row>
+    </view>
+    <button style="width: 300rpx; background-color:#8b8b8b;height: auto;color: white;margin-bottom: 250rpx;" bind:tap="back">确定风格</button>
+</scroll-view>
+<!-- <view class="mycontainer">
+   
+
+</view> -->

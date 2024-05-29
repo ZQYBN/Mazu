@@ -1,0 +1,19 @@
+<xr-scene render-system="alpha:true" bind:ready="handleReady">
+  <!-- 加载模型 -->
+  <xr-assets ind:progress="jx" bind:loaded="cg">
+    <xr-asset-load type="gltf" asset-id="mzn"  src="https://636c-cloud1-7g5vke1x7dd05544-1325794133.tcb.qcloud.la/%E6%A8%A1%E5%9E%8B/%E4%BA%BA%E7%89%A9%E8%BD%AC%E6%A0%BC%E5%BC%8F.glb?sign=1e669266b6c1ef50032e8195477e04b0&t=1715562331" />
+  </xr-assets>
+  <xr-gltf node-id="mzn" model="mzn" scale="0.4 0.4 0.4" position="0 -0.35 0" anim-autoplay/>
+  <xr-node>
+    <!-- 相机绑定空的模型 -->
+    <xr-node node-id="target" position="0 0 0" />
+    <xr-camera
+      id="camera" node-id="camera" position="0 0 2" clear-color="{{clearColor}}"
+      target="target" camera-orbit-control=""
+    ></xr-camera>
+  </xr-node>
+  <xr-node node-id="lights">
+    <xr-light type="ambient" color="1 1 1" intensity="1" />
+    <xr-light type="directional" rotation="40 170 0" color="1 1 1" intensity="3" />
+  </xr-node>
+</xr-scene>

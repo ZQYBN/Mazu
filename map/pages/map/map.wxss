@@ -1,0 +1,190 @@
+/* pages/map/map.wxss */
+.title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.container {
+    width: 100%;
+}
+
+.map {
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.container2{
+    position: absolute;
+    z-index: 3;
+    top: 250rpx;
+    right: 20rpx;
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    width: 100rpx;
+}
+
+.goToPostcard{
+    display: flex;
+    flex-direction: row;
+    width: 60rpx;
+    justify-content: center;
+    align-items: center;
+}
+
+.initialize{
+    width: 60rpx;
+}
+
+.clock{
+    width: 60rpx;
+    height: 5ch;
+    /* margin-bottom: 20rpx; */
+    
+}
+
+.botton-loc{
+    position: absolute;
+    z-index: 3;
+    bottom: 50vw;
+    right: 20rpx;
+    display: flex;
+    width: 5ch;
+    height: 5ch;
+}
+
+.dialogButtom{
+    font-size: larger;
+    font-weight: bold;
+    height: 7vh;
+}
+
+.radar-layer {
+    z-index: 2;
+    position: absolute;
+    bottom: 0px;
+    height: 100%;
+    width: 100%;
+    display: grid;
+    align-items: center;
+    justify-items: center;
+  }
+  
+  .radar-container {
+    display: grid;
+    grid-gap: 5px;
+    align-items: center;
+    justify-items: center;
+  }
+  
+  .radar{
+    width: calc(120px + 24px);
+    height: calc(120px + 24px);
+    background: 
+        /* 重复的径向渐变 圈圈 */
+        repeating-radial-gradient(
+            transparent 0,
+            transparent 18px,
+            white 18px,
+            white 20px
+        ),
+        /* 线性渐变 中间横线 */
+        linear-gradient(
+            transparent 49.75%,
+            white 49.75%,
+            white 50.25%,
+            transparent 50.25%
+        ),
+        /* 线性渐变 中间竖线 */
+        linear-gradient(
+            90deg,
+            transparent 49.75%,
+            white 49.75%,
+            white 50.25%,
+            transparent 50.25%
+        ),
+        /* 线性渐变 背景 */
+        rgba(182, 129, 61, 0.7);
+    position: relative;
+    border-radius: 50%;
+    box-shadow: 2px 2px 5px #aaa;
+  }
+  
+  .radar::before{
+      content: "";
+      position: absolute;
+      width: calc(120px / 2);
+      height: calc(120px / 2);
+      background: linear-gradient(
+          45deg,
+          rgba(0,0,0,0) 50%,
+          rgba(255,255,255,1) 100%
+      );
+      border-radius: 100% 0 0 0;
+      top: calc(24px / 2);
+      left: calc(24px / 2);
+      /* 执行动画: 动画名称 时长 线性的 无限次播放 */
+      animation: scanning 5s linear infinite;
+      /* 设置旋转元素的基点位置 */
+      transform-origin: 100% 100%;
+  }
+
+  @keyframes scanning {
+    to{
+        transform: rotate(360deg);
+    }
+  }
+
+  .nearest {
+    background-color: #B6813D;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 2px 2px 4px #ccc;
+  }
+.bnt_container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* align-content: center; */
+  background-color: rgb(255, 255, 255);
+  height: auto;
+  /* width: rpx; */
+  margin: 8rpx;
+  border-radius: 20rpx;
+}
+.bnt_textstyle{
+  font-size: 15rpx;
+  text-align: center;
+  font-weight: bold;
+  color: rgb(44, 44, 44);
+  margin-bottom: 5rpx;
+}
+.bnt_image{
+  display: block;
+  width: 50rpx;
+  margin-top: 10rpx;
+}
+.container3{
+  position: absolute;
+  z-index: 3;
+  top: 250rpx;
+  left: 20rpx;
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  width: 100rpx;
+}
+.dialog{
+  margin: 0px;
+  height: 400rpx;
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+}

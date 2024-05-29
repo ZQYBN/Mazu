@@ -1,0 +1,7 @@
+{
+    "usingComponents": {
+        "van-popup": "@vant/weapp/popup/index",
+        "wux-fab-button": "wux-weapp/fab-button/index"
+      },
+    "navigationBarTitleText": "FabButton"
+  }

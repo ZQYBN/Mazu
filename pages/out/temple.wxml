@@ -1,0 +1,2 @@
+<!--pages/out/temple.wxml-->
+<web-view src="{{src}}"> </web-view>

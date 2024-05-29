@@ -1,0 +1,39 @@
+<!--custom-tab-bar/index.wxml-->
+
+<van-tabbar active="{{ active }}" bind:change="onChange" border="true">
+    <!-- <van-tabbar-item name="Home" icon="wap-home-o"></van-tabbar-item> -->
+    <van-tabbar-item name="Home">
+        <image slot="icon" src="/img/妈祖资讯_1.png" mode="aspectFit" style="width: 30px; height: 25px;" />
+        <image slot="icon-active" src="/img/妈祖资讯_2.png" mode="aspectFit" style="width: 30px; height:25px;" />
+        妈祖资讯
+    </van-tabbar-item>
+    <van-tabbar-item name="WenChuang" >
+        <image slot="icon" src="/img/妈祖文创_1.png" mode="aspectFit" style="width: 30px; height: 25px;" />
+        <image slot="icon-active" src="/img/妈祖文创_2.png" mode="aspectFit" style="width: 30px; height:25px;" />
+        妈祖文创
+    </van-tabbar-item>
+    <van-tabbar-item name="AI">
+        <image slot="icon" src="/img/AI_1.png" mode="heightFix" style="width: 30px; height: 46px;" />
+        <image slot="icon-active" src="/img/AI_2.png" mode="heightFix" style="width: 30px; height: 46px;" />
+    </van-tabbar-item>
+    <van-tabbar-item name="Map">
+        <image slot="icon" src="/img/地图_1.png" mode="aspectFit" style="width: 30px; height: 25px;" />
+        <image slot="icon-active" src="/img/地图_2.png" mode="aspectFit" style="width: 30px; height:25px;" />
+        地图
+    </van-tabbar-item>
+    <van-tabbar-item name="My" >
+        <image slot="icon" src="/img/我的_1.png" mode="aspectFit" style="width: 30px; height: 25px;" />
+        <image slot="icon-active" src="/img/我的_2.png" mode="aspectFit" style="width: 30px; height:25px;" />
+        我的
+    </van-tabbar-item>
+
+    <!-- <van-tabbar-item name="Home" icon="wap-home-o">主页</van-tabbar-item>
+        <van-tabbar-item name="AI">
+            <image slot="icon" src="/img/AI_1.png" mode="heightFix" style="width: 30px; height: 50px;" />
+            <image slot="icon-active" src="/img/AI_2.png" mode="heightFix" style="width: 30px; height: 50px;" />
+            AI
+        </van-tabbar-item>
+        <van-tabbar-item name="Map" icon="location-o" mode="aspectFit" style="font-size: 200px;">地图</van-tabbar-item>
+        <van-tabbar-item name="temple" icon="scan">宫庙</van-tabbar-item>
+        <van-tabbar-item name="My" icon="user-o">我的</van-tabbar-item> -->
+</van-tabbar>

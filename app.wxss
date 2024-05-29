@@ -1,0 +1,18 @@
+/**app.wxss**/
+.container {
+  height: 100%;
+  /* 布局方式 */
+  display: flex;
+  /* 通过设置坐标轴，来设置项目排列方向。 */
+  flex-direction: column;
+  /* flex-wrap 属性
+  设置是否允许项目多行排列，以及多行排列时换行的方向。 */
+  align-items: center;
+  /* 设置项目在主轴方向上对齐方式，以及分配项目之间及其周围多余的空间。设置项目在主轴方向上对齐方式，以及分配项目之间及其周围多余的空间。 */
+  justify-content: space-between;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+

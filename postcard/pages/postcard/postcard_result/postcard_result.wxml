@@ -1,0 +1,66 @@
+<!--pages/postcard/postcard_result/postcard_result.wxml-->
+<view style="background-color: rgb(255, 255, 255);">
+    <view style="width:750rpx;height:{{statusBarHeight}}px"></view>
+    <view class="title" style="width:750rpx;height:{{titleHeight}}px">
+        <view style="position: fixed;left: 10px;margin-top: 5px;">
+            <van-icon name="arrow-left" size="20px" color="black" bind:click="back_page" />
+        </view>
+        编辑明信片
+    </view>
+</view>
+<view>
+    <!-- 明信片结果预览 -->
+    <view class="result_container">
+        <canvas type="2d" id="myCanvas" style="position:relative;width: {{canvas_width}}px;height: {{canvas_height}}px;" canvas-id="canvas">
+        </canvas>
+    </view>
+
+    <scroll-view scroll-y show-scrollbar="{{true}}" style="height:{{scroll_height}}px;background-color: rgb(235, 234, 234);width: 100%;">
+        <view class="mycontainer">
+            <view style="display: flex;flex-direction: column;justify-content: space-around;align-items: space-around;margin-top: 20rpx;margin-left: 50rpx;margin-right: 50rpx;">
+                <view style="display: flex;width: 100%;height: 60rpx;background-color: tan;flex-direction: row;justify-content: left;align-items:center;">
+                    <text style="margin-left: 30rpx;margin-top: 20rpx;margin-bottom: 20rpx;font-size: 30rpx;color: rgb(255, 255, 255);">选择你喜欢的纪念章</text>
+                </view>
+                <scroll-view style="width: 100%;height: 200rpx;background-color: rgb(248, 230, 195);" scroll-x="true" show-scrollbar="{{true}}">
+                    <view style="display: flex; flex-wrap: nowrap;width: 1000rpx;height: 100%; justify-content: center; align-items: center;">
+                        <image bind:tap="image" style="width: 190rpx; height: 190rpx;margin-right: 10rpx;" data-id='1' data-url="https://636c-cloud1-7g5vke1x7dd05544-1325794133.tcb.qcloud.la/%E6%98%8E%E4%BF%A1%E7%89%87%E8%A6%81%E7%B4%A0/%E7%AB%A01.jpg?sign=278b6eceb9be64f257d89e7815548d4d&t=1715500298" src="https://636c-cloud1-7g5vke1x7dd05544-1325794133.tcb.qcloud.la/%E6%98%8E%E4%BF%A1%E7%89%87%E8%A6%81%E7%B4%A0/%E7%AB%A01.jpg?sign=278b6eceb9be64f257d89e7815548d4d&t=1715500298"></image>
+                        <image bind:tap="image" style="width: 190rpx; height: 190rpx;margin-right: 10rpx;" data-id='2' data-url='https://636c-cloud1-7g5vke1x7dd05544-1325794133.tcb.qcloud.la/%E6%98%8E%E4%BF%A1%E7%89%87%E8%A6%81%E7%B4%A0/%E7%AB%A02.jpg?sign=f133f9526bb7e42d38ccb1cdb55e490a&t=1715500591' src="https://636c-cloud1-7g5vke1x7dd05544-1325794133.tcb.qcloud.la/%E6%98%8E%E4%BF%A1%E7%89%87%E8%A6%81%E7%B4%A0/%E7%AB%A02.jpg?sign=f133f9526bb7e42d38ccb1cdb55e490a&t=1715500591"></image>
+                        <image bind:tap="image" style="width: 190rpx; height: 190rpx;margin-right: 10rpx;" data-id='3' data-url="https://636c-cloud1-7g5vke1x7dd05544-1325794133.tcb.qcloud.la/%E6%98%8E%E4%BF%A1%E7%89%87%E8%A6%81%E7%B4%A0/%E7%AB%A03.jpg?sign=33c007213f43f090459a1b08dfdbc80f&t=1715500608" src="https://636c-cloud1-7g5vke1x7dd05544-1325794133.tcb.qcloud.la/%E6%98%8E%E4%BF%A1%E7%89%87%E8%A6%81%E7%B4%A0/%E7%AB%A03.jpg?sign=33c007213f43f090459a1b08dfdbc80f&t=1715500608"></image>
+                        <image bind:tap="image" style="width: 190rpx; height: 190rpx;margin-right: 10rpx;" data-id='4' data-url="https://636c-cloud1-7g5vke1x7dd05544-1325794133.tcb.qcloud.la/%E6%98%8E%E4%BF%A1%E7%89%87%E8%A6%81%E7%B4%A0/%E7%AB%A04.jpg?sign=534dff66fdfdc192fa231c7bf9bd6286&t=1715500621" src="https://636c-cloud1-7g5vke1x7dd05544-1325794133.tcb.qcloud.la/%E6%98%8E%E4%BF%A1%E7%89%87%E8%A6%81%E7%B4%A0/%E7%AB%A04.jpg?sign=534dff66fdfdc192fa231c7bf9bd6286&t=1715500621"></image>
+                        <image bind:tap="image" style="width: 190rpx; height: 190rpx;margin-right: 10rpx;" data-id='5' data-url="https://636c-cloud1-7g5vke1x7dd05544-1325794133.tcb.qcloud.la/%E6%98%8E%E4%BF%A1%E7%89%87%E8%A6%81%E7%B4%A0/%E7%AB%A05.png?sign=4dec1746618287fc79f5fc9bad593196&t=1715698943" src="https://636c-cloud1-7g5vke1x7dd05544-1325794133.tcb.qcloud.la/%E6%98%8E%E4%BF%A1%E7%89%87%E8%A6%81%E7%B4%A0/%E7%AB%A05.png?sign=4dec1746618287fc79f5fc9bad593196&t=1715698943"></image>
+                    </view>
+                </scroll-view>
+            </view>
+            <!-- 寄语 -->
+            <view style="display: flex;flex-direction: row;justify-content: space-around;align-items: center;">
+                <view class="JiYu">
+                    <!-- <text style="font-weight: bold;font-size: 18px;">您的寄语：</text> -->
+                    <wux-textarea  controlled="{{true}}"  value="{{ value1 }}" hasCount rows="4" cursorSpacing="200" maxlength="50" placeholder="请输入您的寄语(最多50字)或 要求AI生成的主题，如：美食、旅游、探索" bind:change='jtjp' />
+                </view>
+                <view style="margin-right: 40rpx;display: flex;justify-content: center;flex-direction: column;align-items: center;">
+                    <image style="height: 150rpx;"mode="heightFix" bind:tap="AIrs" src="https://636c-cloud1-7g5vke1x7dd05544-1325794133.tcb.qcloud.la/%E6%98%8E%E4%BF%A1%E7%89%87%E9%A1%B5%E9%9D%A2/AI%E5%AF%84%E8%AF%AD%E7%BE%8E%E5%8C%96.png?sign=698bfe10de24286773c9e4d19b5560f1&t=1715784381"></image>
+                    <!-- <van-image bind:tap="AIrs" round width="5rem" height="5rem" fit="cover" src="cloud://cloud1-7g5vke1x7dd05544.636c-cloud1-7g5vke1x7dd05544-1325794133/莲花.png" /> -->
+                    <view style="font-weight: bold;font-size: 16px; text-align: center;">
+                        <text>AI寄语美化</text>
+                    </view>
+                </view>
+            </view>
+            <!-- 署名 -->
+            <view class="Sign">
+                <van-field bind:input='smjp' label="署名：" maxlength="5" title-width="3.2em" value="{{ value }}" placeholder="请输入..." border="{{ false }}" bind:change="onChange" />
+            </view>
+            <!-- 完成 -->
+
+            <!-- 空白行 -->
+            <!-- <wux-white-space size="large" /> -->
+
+            <view style="display: flex; width:100%; justify-content: center; position: absolute;">
+                <button bind:tap="baocun" style="display: flex; font-size: 30rpx;justify-content:space-around;width: 500rpx;margin-top: 30rpx;margin-bottom: 100rpx;border-radius: 30rpx;font-weight: bold;background-color:tan;color: rgb(255, 255, 255);" bind:click="finish">完成制作</button>
+            </view>
+        </view>
+
+        <!-- 底部留空，否则滚动栏划不到底 -->
+        <!-- <wux-white-space body-style="height:{{titleHeight+statusBarHeight+100}}px"  />
+        <wux-safe-area safeArea="bottom"  wrapStyle="{{ { background: '#ebeaea' } }}"  /> -->
+    </scroll-view>
+</view>

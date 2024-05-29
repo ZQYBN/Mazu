@@ -1,0 +1,149 @@
+<!--pages/index/index.wxml-->
+<!-- <wux-safe-area safeArea="top" wrapStyle="{{ { background: '#FFFFFF' } }}" forceRender /> -->
+
+<view style="height: 100vh;background-image: url(https://img.qovv.cn/2024/05/03/6634ec0cd3c9a.png);background-size: cover;background-color: rgb(255, 255, 255);">
+    <scroll-view class="scroll-view" scroll-y enhanced="true" show-scrollbar="{{false}}" style="height:{{height}}px;">
+        <!-- 图片 -->
+        <wux-wing-blank body-style=" margin-top:200rpx;margin-left: 38rpx; margin-right: 38rpx" size="large">
+            <swiper style="height:350rpx;" autoplay="{{true}}" circular="{{true}}" indicator-dots="{{true}}" interval="4000">
+                <swiper-item>
+                    <van-image bind:click="click_xmutsrsc" class="placeholder" radius="16px" width="100%" height="350rpx" fit="cover" src="cloud://cloud1-7g5vke1x7dd05544.636c-cloud1-7g5vke1x7dd05544-1325794133/AI美化.png" />
+                </swiper-item>
+                <swiper-item>
+                    <van-image bind:click="click_LianHeGuo" class="placeholder" radius="16px" width="100%" height="350rpx" fit="cover" src="cloud://cloud1-7g5vke1x7dd05544.636c-cloud1-7g5vke1x7dd05544-1325794133/迎妈祖.jpg" />
+                </swiper-item>
+                <swiper-item>
+                    <van-image class="placeholder" radius="16px" width="100%" height="380rpx" fit="cover" src="cloud://cloud1-7g5vke1x7dd05544.636c-cloud1-7g5vke1x7dd05544-1325794133/湄洲岛.png" />
+                </swiper-item>
+            </swiper>
+        </wux-wing-blank>
+        <!-- 空白行 -->
+        <wux-white-space size="large" />
+
+        <!-- 妈祖文化 -->
+        <!-- <wux-wing-blank size="large">
+            <view style=" border-radius: 16px;">
+
+                <view style="display: flex;flex-direction: row;justify-content: center;align-content: flex-end;">
+                    <image style="height: 95rpx;" mode="heightFix" src="https://img.qovv.cn/2024/05/03/6634d207c0869.png"></image>
+                    <text class="culture" style="font-size: 34rpx;font-weight: bold;">线上体验</text>
+                </view>
+
+                <view style="margin: 2%;">
+                    <van-row>
+                        <van-col span="8">
+                            <van-image bind:click="click_pray" class="mazu_img" style="margin:5% ;" radius="30rpx" width="90%" height="280rpx" fit="cover" src="cloud://cloud1-7g5vke1x7dd05544.636c-cloud1-7g5vke1x7dd05544-1325794133/天妃灵签.png" />
+                        </van-col>
+                        <van-col span="8">
+                            <van-image bind:click="click_wish" class="mazu_img" style="margin:5% ;" radius="30rpx" width="90%" height="280rpx" fit="cover" src="cloud://cloud1-7g5vke1x7dd05544.636c-cloud1-7g5vke1x7dd05544-1325794133/云端祈福.png" />
+                        </van-col>
+                        <van-col span="8">
+                            <van-image bind:click="click_postcard" class="mazu_img" style="margin:5% ;" radius="30rpx" width="90%" height="280rpx" fit="cover" src="https://636c-cloud1-7g5vke1x7dd05544-1325794133.tcb.qcloud.la/%E5%A6%88%E7%A5%96%E4%BF%A1%E7%AC%BA.png?sign=2d4a954db92d6479ffc5dff72ceaad91&t=1715613723" />
+                        </van-col>
+                    </van-row>
+                    <van-row>
+                        <van-col span="8">
+                            <text class="culture">妈祖灵签</text>
+                        </van-col>
+                        <van-col span="8">
+                            <text class="culture">云端祈福</text>
+                        </van-col>
+                        <van-col span="8">
+                            <text class="culture">明信片制作</text>
+                        </van-col>
+                    </van-row>
+                </view>
+            </view>
+        </wux-wing-blank> -->
+
+        <!-- 空白行 -->
+        <wux-white-space size="large" />
+        <!-- 妈祖文化 -->
+        <wux-wing-blank size="large">
+            <view style=" border-radius: 16px;">
+                <view style="display: flex;flex-direction: row;justify-content: center;align-content: flex-end;">
+                    <image style="height: 140rpx;" mode="aspectFill" src="cloud://cloud1-7g5vke1x7dd05544.636c-cloud1-7g5vke1x7dd05544-1325794133/妈祖资讯/祖庙云行.png">
+                    </image>
+                </view>
+
+                <view style="margin-top: 0rpx;margin-right: 2%;margin-left: 2%;">
+                    <van-row>
+                        <van-col  span="6">
+                            <van-image bind:click="click_QuanJing" class="mazu_img" style="margin:0 ;" radius="16px" width="90%" height="200rpx" fit="contain" src="https://636c-cloud1-7g5vke1x7dd05544-1325794133.tcb.qcloud.la/%E5%A6%88%E7%A5%96%E8%B5%84%E8%AE%AF/%E5%85%A8%E6%99%AF%E5%AF%BC%E8%A7%88.png?sign=56f8f6e8d7475b1a4fd8ee1a90c09d41&t=1716906803" />
+                        </van-col>
+                        <van-col span="6">
+                            <van-image bind:click="click_temple" class="mazu_img" style="margin:0% ;" radius="16px" width="90%" height="200rpx" fit="contain" src="https://636c-cloud1-7g5vke1x7dd05544-1325794133.tcb.qcloud.la/%E5%A6%88%E7%A5%96%E8%B5%84%E8%AE%AF/%E5%8F%A4%E5%BA%99VR.png?sign=372a6904580d19568d8a90fa57b287b0&t=1716906840" />
+                        </van-col>
+                        <van-col span="6">
+                            <van-image bind:click="click_story" class="mazu_img" style="margin:0 ;" radius="16px" width="90%" height="200rpx" fit="contain" src="https://636c-cloud1-7g5vke1x7dd05544-1325794133.tcb.qcloud.la/%E5%A6%88%E7%A5%96%E8%B5%84%E8%AE%AF/%E7%A5%96%E5%BA%99%E7%82%B9%E4%BA%91.png?sign=cc20130d511350878aca93dd35c38971&t=1716906859" />
+                        </van-col>
+                        <van-col span="6">
+                            <van-image bind:click="click_temple" class="mazu_img" style="margin:0% ;" radius="16px" width="90%" height="200rpx" fit="contain" src="https://636c-cloud1-7g5vke1x7dd05544-1325794133.tcb.qcloud.la/%E5%A6%88%E7%A5%96%E8%B5%84%E8%AE%AF/%E4%B8%89%E7%BB%B4%E6%A8%A1%E5%9E%8B.png?sign=50d2d69085e4c49f2399c7e5f3efb513&t=1716907443" />
+                        </van-col>
+                    </van-row>
+                    <van-row>
+
+                    </van-row>
+                </view>
+            </view>
+        </wux-wing-blank>
+        <!-- 空白行 -->
+        <wux-white-space size="large" />        
+        <!-- 妈祖文化 -->
+        <wux-wing-blank size="large">
+            <view style=" border-radius: 16px;">
+
+                <view style="display: flex;flex-direction: row;justify-content: center;align-content: flex-end;">
+                    <image style="height: 140rpx;" mode="aspectFill" src="cloud://cloud1-7g5vke1x7dd05544.636c-cloud1-7g5vke1x7dd05544-1325794133/妈祖资讯/妈祖文化.png"></image>
+                    <!-- <text class="culture" style="font-size: 34rpx;font-weight: bold;">妈祖文化</text> -->
+                </view>
+
+                <view style="margin: 2%;">
+                    <van-row>
+                        <van-col span="12">
+                            <van-image bind:click="click_story" class="mazu_img" style="margin:0 ;" radius="16px" width="90%" height="400rpx" fit="contain" src="cloud://cloud1-7g5vke1x7dd05544.636c-cloud1-7g5vke1x7dd05544-1325794133/妈祖资讯/妈祖生平.png" />
+                        </van-col>
+                        <van-col span="12">
+                            <van-image bind:click="click_temple" class="mazu_img" style="margin:10% ;" radius="16px" width="90%" height="400rpx" fit="contain" src="cloud://cloud1-7g5vke1x7dd05544.636c-cloud1-7g5vke1x7dd05544-1325794133/妈祖资讯/祖庙活动.png" />
+                        </van-col>
+                    </van-row>
+                    <!-- <van-row>
+                        <van-col span="12">
+                            <text class="culture">妈祖生平介绍</text>
+                        </van-col>
+                        <van-col span="12">
+                            <text class="culture">祖庙活动</text>
+                        </van-col>
+                    </van-row> -->
+                </view>
+            </view>
+        </wux-wing-blank>
+
+        <!-- 空白行 -->
+        <wux-white-space size="large" />
+
+
+        <!--  湄洲全景-->
+        <!-- <wux-wing-blank body-style="margin-left: 20px; margin-right: 20px" size="large">
+            <view style="display: flex;flex-direction: row;justify-content: center;">
+                <image style="height: 140rpx;" mode="aspectFill" src="cloud://cloud1-7g5vke1x7dd05544.636c-cloud1-7g5vke1x7dd05544-1325794133/妈祖资讯/湄洲全景.png"></image> -->
+                <!-- <text class="culture" style="font-size: 34rpx;font-weight: bold;">湄洲全景</text> -->
+            <!-- </view>
+            <van-image bind:click="click_QuanJing" class="placeholder" radius="16px" width="100%" height="220px" fit="cover" src="cloud://cloud1-7g5vke1x7dd05544.636c-cloud1-7g5vke1x7dd05544-1325794133/全景.jpg" />
+        </wux-wing-blank> -->
+
+        <wux-white-space size="large" />
+
+        <wux-wing-blank body-style="margin-left: 20px; margin-right: 20px" size="large">
+            <view style="display: flex;flex-direction: row;justify-content: center;align-content: flex-end;">
+              <image style="height: 140rpx;" mode="aspectFill" src="https://636c-cloud1-7g5vke1x7dd05544-1325794133.tcb.qcloud.la/%E5%A6%88%E7%A5%96%E8%B5%84%E8%AE%AF/%E5%A6%88%E7%A5%96%E8%A7%86%E9%A2%91.png?sign=385885e633a0297892f8e9f5c77d3216&t=1715783737"></image>
+            </view>
+            <!-- http://xmutsrsc.com/video/MZX1.mp4 -->
+            <video objectFit="cover" src="http://xmutsrsc.com/video/MZX_DZX.mp4" style="width: 100%;" show-mute-btn controls muted="true"></video>
+        </wux-wing-blank>
+        <!-- <wux-footer theme="positive" content="© 2024 XMUT SRSC Lab 从容应队" /> -->
+        <!-- 底部留空，否则滚动栏划不到底 -->
+        <wux-white-space body-style="height: 50px" />
+        <wux-safe-area safeArea="bottom" wrapStyle="{{ { background: '#ffffff' } }}" />
+    </scroll-view>
+</view>

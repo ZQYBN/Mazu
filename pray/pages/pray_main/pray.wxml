@@ -1,0 +1,56 @@
+<!--pages/pray/pray.wxml-->
+<view style="background-color: rgb(241, 234, 211);">
+    <view style="width:750rpx;height:{{statusBarHeight}}px"></view>
+    <view class="title" style="width:750rpx;height:{{titleHeight}}px">
+        <view style="position: fixed;left: 10px;margin-top: 5px;">
+            <van-icon name="arrow-left" size="20px" color="black" bind:click="back_page" />
+        </view>
+        <view>求签</view>
+    </view>
+</view>
+
+
+<view class="mycontainer" style="background-color:rgb(241, 234, 211) ;background-size: cover;background-image:url(https://636c-cloud1-7g5vke1x7dd05544-1325794133.tcb.qcloud.la/%E6%B1%82%E7%AD%BE%E8%83%8C%E6%99%AF%E5%9B%BE/%E8%83%8C%E6%99%AF%E5%9B%BE.jpg?sign=1d4a59b951905e7d636cfb54296bcf7e&t=1715651249);">
+    <wux-steps current="{{ current }}" style="width: 100%;">
+        <wux-step title="开始" content="选择心仪主题"></wux-step>
+        <wux-step title="第二步" content="选择心仪标签"></wux-step>
+        <wux-step title="结果" content="点击按钮求签"></wux-step>
+    </wux-steps>
+    <!-- 主题 -->
+    <view class="theme" style="color: {{color}};">主题：{{theme}}</view>
+    <!-- 二级标签 -->
+    <view class="TagContainer">
+        <!-- 切换按钮 -->
+
+        <view class="tagContainer">
+            <view wx:for="{{currentTags}}" wx:key="index">
+                <view data-has-border="{{item.hasBorder}}" style="border: {{item.hasBorder ? '1px solid red' : 'none'}}">
+                    <van-icon wx:if="{{item.isSelect}}" name="passed" color="green" />
+                    <wux-tag bind:click="tag_click" data-index="{{index}}" color="{{item.color}}" class="tag">{{item.text}}</wux-tag>
+                </view>
+            </view>
+            <view class="pray_DIY" wx:if="{{showTextInput}}">
+                <!-- 在DIY模式下显示文本输入框 -->
+                <text style="font-weight: bold;font-size: 18px;">您的自定义内容：</text>
+                <wux-textarea bind:change="onChange" bind:blur="onBlur" hasCount rows="9" cursorSpacing="200" maxlength="30" placeholder="输入你的想法（例如:“我的朋友每日沉迷于电子游戏，我想抽一签给我的朋友，希望他看到这一签以后可以幡然醒悟。”）" />
+            </view>
+        </view>
+        <view class="change_theme">
+            <van-button type="default" round plain hairline color="#4bb0ff" bind:click="change_theme">
+                <van-icon name="replay" />换个主题
+            </van-button>
+        </view>
+    </view>
+    <!-- 抽签按钮 -->
+    <view class="PrayButton_Container">
+        <view animation="{{animationData}}">
+            <van-image width="200rpx" height="200rpx" src="/pray/img/签筒.png" />
+        </view>
+        <button bind:tap="start_pray" style="display: flex; font-size: 30rpx;justify-content:space-around;width: 500rpx;margin-top: 30rpx;margin-bottom: 100rpx;border-radius: 30rpx;font-weight: bold;background-color:tan;color: rgb(255, 255, 255);">立刻抽签</button>
+    </view>
+
+    <view class="tips_bottom">
+        提醒：仅供娱乐，相信科学
+        <wux-safe-area class="wux-safe-area" safeArea="bottom" />
+    </view>
+</view>

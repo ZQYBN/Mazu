@@ -1,0 +1,107 @@
+<!--pages/pray/pray_result/pray_out.wxml-->
+
+<view  style="background-color: rgb(247, 240, 231);">
+    <view style="width:750rpx;height:{{statusBarHeight}}px"></view>
+    <view class="title" style="width:750rpx;height:{{titleHeight}}px">
+        <view style="position: fixed;left: 10px;margin-top: 5px;">
+            <van-icon name="arrow-left" size="20px" color="black" bind:click="back_page" />
+        </view>
+        <view>求签结果</view>
+    </view>
+</view>
+<view wx:if="{{canvas}}" style="display: flex;flex-direction: column; justify-content: center; align-items: center; width: 100%; height: 100%; position: absolute; z-index: 4; background-color: rgba(165, 165, 165, 0.7);">
+  <!-- 画布区域 -->
+  <view class="canvas" style="height: {{canvas_height}}px;">
+    <canvas  type="2d" id="myCanvas" style="height: 100%; width:{{canvas_width}}px; z-index: 5; background-color: rgba(247, 240, 231);" canvas-id="canvas" ></canvas>
+  </view>
+  <!-- 底部分享 -->
+  <view class="dibu" >
+  <view style="display: flex; width: 100%; ">
+    <view style="flex:1; margin-left:20rpx ;margin-top: 20rpx;">分享到</view>
+    <image bind:tap="cx" src="../../img/取消 (1).png" style="width: 40rpx; height: 40rpx; margin-right: 20rpx;margin-top: 20rpx;"></image>
+  </view>
+    <view style="display: flex; justify-content: center; align-items: center;column-gap: 30rpx; position:relative ;top:25rpx">
+      <view class=" image_buj">
+        <image bind:tap="bctp" class='image' src = '../../img/保存图片.png'></image>
+        <view class="fx_tetx">保存图片</view>
+      </view>
+      <view class=" image_buj">
+        <image bind:tap="wxhy" class='image' src = '../../img/微信.png'></image>
+        <view class="fx_tetx">微信</view>
+      </view>
+      <view class=" image_buj">
+        <image bind:tap="wxpyq" class='image' src = '../../img/朋友圈.png'></image>
+        <view class="fx_tetx">朋友圈</view>
+      </view>
+      <view class=" image_buj">
+        <image class='image' src = '../../img/QQ.png'></image>
+        <view class="fx_tetx">QQ</view>
+      </view>
+      <view class=" image_buj">
+        <image class='image' src = '../../img/QQ空间 (1).png'></image>
+        <view class="fx_tetx">QQ空间</view>
+      </view>
+      <view class=" image_buj">
+        <image class='image' src = '../../img/微博.png'></image>
+        <view class="fx_tetx"> 微博</view>
+      </view>
+    </view>
+  </view>
+</view>
+<scroll-view class="scroll-view" scroll-y show-scrollbar="{{true}}" style="height:100vh;background-color: rgb(247, 240, 231);">
+<view class='view'>
+    <!-- 抽到的签语以图片形式显示 -->
+    <wux-wing-blank body-style=" margin-left: 0px; margin-right: 0px" size="large">
+        <view class="XuandongKaishu" style="top:{{230}}rpx">
+            <view class="data">{{qw1}}</view>
+            <view class="data">{{qw2}}</view>
+            <view class="data">{{qw3}}</view>
+            <view class="data">{{qw4}}</view>
+            <view class="dijiqian">{{i}}</view>
+        </view>
+        <!-- <image class="backend-image" src="{{backendImageUrl}}"></image> -->
+        <van-image class="placeholder" width="100%" height="420rpx" fit="cover" src="{{url}}" mode='aspectFit'>
+        </van-image>
+    </wux-wing-blank>
+
+    <!-- 空白行 -->
+    <wux-white-space size="large" />
+
+    <wux-wing-blank body-style=" margin-left: 30rpx; margin-right: 30rpx" size="large">
+        <view class="view1">
+            <text style="font-size:45rpx; font-family: 'ks1';text-align: center;color: rgb(109, 46, 2);font-weight: bold;">签语解读</text>
+            <!-- AI生成的签语解读内容 -->
+            <text style="font-size:35rpx;word-wrap: break-word;margin-top:10rpx; font-family: '楷书'">{{output}}</text>
+        </view>
+    </wux-wing-blank>
+
+    <!-- 空白行 -->
+    <wux-white-space size="large" />
+    <wux-wing-blank body-style=" margin-left: 30rpx; margin-right: 30rpx" size="large">
+        <view class="view1">
+            <text style="font-size:45rpx; font-family: 'ks1';text-align: center;color:rgb(109, 46, 2);font-weight: bold;">历史故事</text>
+            <!-- 签语历史内容 -->
+            <text style="font-size:35rpx; font-family: 'ks1';font-weight: bold;text-align: center;">{{dg}}</text>
+            <text style="font-size:35rpx;word-wrap: break-word;margin-top:10rpx; font-family: '楷书'">{{output2}}</text>
+        </view>
+    </wux-wing-blank>
+    <!-- 空白行 -->
+    <wux-white-space size="large" />
+  </view>
+    <view style="display: flex;flex-direction: row;justify-content: space-around;">
+        <!-- 按下按钮跳转至妈祖石像祈福页面 -->
+        <view style="display: flex;justify-content:center;">
+            <button bindtap="navigateToPage" style="display:flex; border-radius: 70rpx;font-family:'ks1';font-size:40rpx;font-weight:bold;background-color: rgb(255, 190, 96);justify-content: center;align-items: center;">云端 <image style="height: 70rpx;" mode="heightFix" src="../../img/莲花.png"></image>祈福 </button>
+        </view>
+        <view style="display: flex;justify-content: center;align-items: center;">
+            <button bind:tap="bcjrys" style="display: flex; border-radius: 70rpx; font-family:'ks1';font-size:40rpx;font-weight:bold;background-color: rgb(255, 190, 96);justify-content: center;align-items: center;"> 保存今日运势<image style="height: 60rpx;" mode="heightFix" src="../../img/分享图标_签语解读.png"></image></button>
+        </view>
+
+    </view>
+    <view style="display: flex;justify-content: center;margin:20rpx">
+        <text style="color: rgb(255, 0, 0);font-size: 8px;font-weight:bold;font-style: italic;margin: 10rpx;">以上内容均由AI大模型生成，仅供娱乐！</text>
+    </view>
+    <!-- 底部留空，否则滚动栏划不到底 -->
+    <wux-white-space body-style="height: {{heigt_anq}}px" />
+    <wux-safe-area safeArea="bottom" wrapStyle="{{ { background: '#f7f0e7' } }}" />
+</scroll-view>

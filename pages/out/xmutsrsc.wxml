@@ -1,0 +1,2 @@
+<!--pages/out/xmutsrsc.wxml-->
+<web-view src="{{src}}"> </web-view>
