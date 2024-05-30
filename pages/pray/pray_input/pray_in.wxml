@@ -1,0 +1,62 @@
+<!--pages/pray/pray_in.wxml-->
+<view style="background-color: rgb(255, 255, 255);">
+    <view style="width:750rpx;height:{{statusBarHeight}}px"></view>
+    <view class="title" style="width:750rpx;height:{{titleHeight}}px">
+        <view style="position: fixed;left: 10px;margin-top: 5px;">
+            <van-icon name="arrow-left" size="20px" color="black" bind:click="back_page" />
+        </view>
+        云端祈福
+    </view>
+</view>
+<!-- 背景图 -->
+<view class="back">
+    <!-- 滚动字幕 -->
+    <swiper class="new_swiper" direction="horizontal" autoplay="true" circular="true" interval="3000" duration="1500" display-multiple-items='1' easing-function="easeInOutCubic">
+        <block wx:for-index="idx" wx:for='{{members}}' wx:key="index">
+            <swiper-item>
+                <view class="box_item">
+                    <text>{{item}} </text>
+                </view>
+            </swiper-item>
+            <!-- 当仅有一条数据的时候，添加一条数据 实现滚动 -->
+            <swiper-item wx:if="{{members.length === 1}}">
+                <view class="box_item">
+                    <text>{{item}} </text>
+                </view>
+            </swiper-item>
+        </block>
+    </swiper>
+
+    <!-- 狂点弹幕 -->
+    <view class="doommview">
+        <block wx:for="{{doommData}}" wx:key="id">
+            <text wx:if="{{item.display}}" class="aon" style="animation: first 0.3s linear forwards;top:{{item.top}};color:{{item.color}};">
+                {{item.text}}
+            </text>
+        </block>
+    </view>
+    <view class="button">
+        <image class="img" bindtouchstart="bindbt" src="{{buttonStyle}}" bindtouchend="change"></image>
+    </view>
+    <!-- 投币 -->
+    <view class="button1">
+        <image class="img1" bindtouchstart="bindbt1" src="{{buttonStyle1}}" bindtouchend="change1" bindtap="showText"></image>
+    </view>
+    <view class="dd">
+        <text class="money" wx:if="{{show}}">功德+1</text>
+    </view>
+
+    <!-- 编辑弹幕 -->
+    <view class="container">
+        <view class="background"></view>
+        <!-- 输入框 -->
+        <input class="in" bindinput="inputChange" value="{{inputValue}}" placeholder=" 发个弹幕"></input>
+        <!-- 发送按钮 -->
+        <button class="send" bindtap="sendMessage" style="z-index: 10;">发送</button>
+        <!-- 接收文本框 -->
+        <view class="receive-container">
+            <text class="receive-text" animation="{{animationStyle}}">{{receiveValue}}</text>
+        </view>
+    </view>
+
+</view>

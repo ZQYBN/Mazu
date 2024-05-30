@@ -1,0 +1,6 @@
+/* pages/main/culture/temple.wxss */
+.title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

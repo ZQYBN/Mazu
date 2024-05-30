@@ -1,0 +1,92 @@
+<!--pages/postcard/postcard.wxml-->
+<view style="background-color: rgb(255, 255, 255);position: fixed;z-index:999;">
+    <view style="width:750rpx;height:{{statusBarHeight}}px"></view>
+    <view class="title" style="width:750rpx;height:{{titleHeight}}px">
+        <view style="position: fixed;left: 10px;margin-top: 5px;">
+            <van-icon name="arrow-left" size="20px" color="black" bind:click="back_page" />
+        </view>
+        <view> 编辑明信片</view>
+    </view>
+</view> 
+
+<!-- 底图 -->
+<image-cropper id="image-cropper" disable_width="{{true}}" disable_height="{{true}}" cut_left="{{container_left}}" cut_top="{{container_height}}" max_scale="5"  limit_move="{{true}}" disable_rotate="{{true}}" width="{{width}}" height="{{height}}" imgSrc="{{src}}" bindload="cropperload" bindimageload="loadimage" bindtapcut="clickcut">
+</image-cropper>
+
+<!-- 结果画布 -->
+<view style="position: fixed;top: -500px;z-index: 999;">
+    <canvas id="result" type="2d" style="position: absolute;z-index: 999;width: {{template_width}}px; height:{{template_height}}px;pointer-events:none">
+    </canvas>
+</view>
+
+<view style="position: absolute;width:100%;height: 100%;display: flex;justify-content: center;top: {{canvas_top_height}}px;">
+    <!-- 模版画布 -->
+    <canvas id="myCanvas" type="2d" style="border: 1px dashed rgb(255, 255, 255);position: absolute;z-index: 999;width: {{ template_width}}px; height:{{template_height}}px;pointer-events:none">
+    </canvas>
+    <image bind:tap="uploadImg" wx:if="{{isUploaderShown}}" src="/postcard/img/点击添加图片.jpg" style="top:{{container_height-titleHeight-statusBarHeight-2}}px;position: absolute;z-index: 1;width:{{width-1}}px; height: {{height}}px">
+    </image>
+    <!-- <text  style="font-size: 40rpx;margin-top: {{container_height+canvas_top_height/2}}px;position: absolute;z-index: 1;color: white;pointer-events:none">点击上传图片</text> -->
+</view>
+
+<scroll-view scroll-y class="bottom" style="height: {{bottom_height}}px;width: 100%;background-color: rgb(66,66,66);">
+    <!-- 功能模块 -->
+    <view class="select">
+        <!-- 小功能 -->
+        <view class="myfunction">
+            <van-icon name="photo-o" size="50rpx" color="white" bind:click="change_photo" />
+            <text class="func_text" bind:tap="change_photo">更换图片</text>
+        </view>
+        <view class="myfunction">
+            <image style="height: 40px;" mode="heightFix" src="https://636c-cloud1-7g5vke1x7dd05544-1325794133.tcb.qcloud.la/%E6%98%8E%E4%BF%A1%E7%89%87%E9%A1%B5%E9%9D%A2/AI%E7%BE%8E%E5%8C%96.png?sign=d622d04bd4559af32b35eeab4a2336c2&t=1715429643" bind:tap="ai_style"></image>
+            <text style="font-size: 15px;color: rgb(255, 255, 255);" bind:tap="ai_style">选择AI风格</text>
+        </view>
+        <view class="myfunction">
+            <van-icon name="replay" size="50rpx" color="white" bind:click="rotate_photo" />
+            <text class="func_text" bind:tap="rotate_photo">旋转</text>
+        </view>
+    </view>
+
+    <!-- 模板选择 -->
+    <view style="width: 100%;">
+        <van-tabs color="#ffffff" nav-class="cs" title-active-color="white" title-inactive-color="#ffffff">
+            <van-tab title="默认">
+                <scroll-view scroll-x="{{true}}" class="scroll_content" style="height: {{scroll_content}}rpx;">
+                    <view class="content" wx:for="{{images_01}}" wx:for-index="index" wx:key="index">
+                        <van-image class="{{item.is_select ? 'is_select' : ''}}" fit="cover" width="{{img_width}}rpx" height="{{img_height}}rpx" src="{{is_shu ? item.src : item.src1}}" bind:tap="toggleSelect01" data-index="{{index}}" />
+                    </view>
+                </scroll-view>
+            </van-tab>
+            <van-tab title="大牌坊">
+                <scroll-view scroll-x="{{true}}" class="scroll_content">
+                    <view class="content" wx:for="{{images_02}}" wx:for-index="index" wx:key="index">
+                        <van-image class="{{item.is_select ? 'is_select' : ''}}" fit="cover" width="{{img_width}}rpx" height="{{img_height}}rpx" src="{{is_shu ? item.src : item.src1}}" bind:tap="toggleSelect02" data-index="{{index}}" />
+                    </view>
+                </scroll-view>
+            </van-tab>
+            <van-tab title="天后宫">
+                <scroll-view scroll-x="{{true}}" class="scroll_content">
+                    <view class="content" wx:for="{{images_03}}" wx:for-index="index" wx:key="index">
+                        <van-image class="{{item.is_select ? 'is_select' : ''}}" fit="cover" width="{{img_width}}rpx" height="{{img_height}}rpx" src="{{is_shu ? item.src : item.src1}}" bind:tap="toggleSelect03" data-index="{{index}}" />
+                    </view>
+                </scroll-view>
+            </van-tab>
+            <van-tab title="妈祖石像">景点3</van-tab>
+        </van-tabs>
+    </view>
+
+    <view class="function2">
+        <view class="change_template">
+            <view class="bnt_change" bind:tap="template_01" style="background-color: {{bnt_color1}}">
+                <wux-icon type="ios-tablet-portrait" color="{{icon_color1}}" />
+            </view>
+            <view class="bnt_change" bind:tap="template_02" style="background-color: {{bnt_color2}}">
+                <wux-icon type="ios-tablet-landscape" color="{{icon_color2}}" />
+            </view>
+        </view>
+
+        <view class="myfunction">
+            <!-- <van-button style="position: absolute;right: 40rpx;" round color="" bind:click="next">下一步</van-button> -->
+            <button style="width: 250rpx; border-radius: 30rpx; background-color: tan;color: white;position: absolute;right: 40rpx;" bind:tap="next">下一步</button>
+        </view>
+    </view>
+</scroll-view>

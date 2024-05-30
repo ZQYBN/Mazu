@@ -1,0 +1,115 @@
+<!--pages/map/map.wxml-->
+<!-- <view style="background-color: rgba(0, 0, 0, 0.027);">
+    <view style="width:750rpx;height:{{statusBarHeight}}px"></view>
+    <view class="title" style="width:750rpx;height:{{titleHeight}}px">
+
+        <view>地图</view>
+    </view>
+</view> -->
+<view style="position: fixed;left: 40rpx;margin-top:{{titleHeight}}px;z-index: 999;">
+    <van-icon name="arrow-left" size="20px" color="black" bind:click="back_page" />
+</view>
+
+<view class="container">
+    <map class="map" id="map" latitude="{{latitude}}" longitude="{{longitude}}" scale="{{scale}}" show-location="true" show-scale="true" markers="{{markers}}" polygons="{{polygons}}" bindmarkertap="showDialog">
+    </map>
+    <!-- 右侧功能栏 -->
+    <view class="container2">
+        <view class="bnt_container" bind:tap="click_QuanJing">
+            <view style="display: flex;justify-content: center;">
+                <image class="bnt_image" src="../../img/地图图标/全景图.png" mode="widthFix"></image>
+            </view>
+            <text class="bnt_textstyle">湄洲全景</text>
+        </view>
+        <view class="bnt_container" style="margin-top: 100rpx;">
+            <view style="display: flex;justify-content: center;">
+                <image class="bnt_image" src="{{isOnCLickPOI_clock?alternativeimage_clock:currentimage_clock}}" mode="widthFix" bindtap="clockPoint"></image>
+            </view>
+            <text class="bnt_textstyle">风景打卡</text>
+        </view>
+        <view class="bnt_container">
+            <view style="display: flex;justify-content: center;">
+                <image class="bnt_image" mode="widthFix" src="../../img/地图图标/明信片.png" bindtap="goToPostcard"></image>
+            </view>
+            <text class="bnt_textstyle">妈祖信笺</text>
+        </view>
+    </view>
+
+
+    <!-- 左侧POI栏位 -->
+    <view class="container3">
+        <view class="bnt_container">
+            <view style="display: flex;justify-content: center;">
+                <image class="bnt_image" mode="widthFix" bindtap="zs" data-param="{{poiParams[0]}}" data-category="{{category[0]}}" src="{{isOnCLickPOI_zs?alternativeimage_zs:currentimage_zs}}"></image>
+            </view>
+            <text class="bnt_textstyle">住宿</text>
+        </view>
+        <view class="bnt_container">
+            <view style="display: flex;justify-content: center;">
+                <image class="bnt_image" mode="widthFix" bindtap="ys" data-param="{{poiParams[1]}}" data-category="{{category[1]}}" src="{{isOnCLickPOI_ys?alternativeimage_ys:currentimage_ys}}"></image>
+            </view>
+            <text class="bnt_textstyle">饮食</text>
+        </view>
+        <view class="bnt_container">
+            <view style="display: flex;justify-content: center;">
+                <image class="bnt_image" mode="widthFix" bindtap="cs" data-param="{{poiParams[2]}}" data-category="{{category[2]}}" src="{{isOnCLickPOI_cs?alternativeimage_cs:currentimage_cs}}"></image>
+            </view>
+            <text class="bnt_textstyle">厕所</text>
+        </view>
+        <view class="bnt_container">
+            <view style="display: flex;justify-content: center;">
+                <image class="bnt_image" mode="widthFix" bindtap="bld" data-param="{{poiParams[3]}}" data-category="{{category[3]}}" src="{{isOnCLickPOI_bld?alternativeimage_bld:currentimage_bld}}"></image>
+            </view>
+            <text class="bnt_textstyle">便利店</text>
+        </view>
+        <view class="bnt_container">
+            <view style="display: flex;justify-content: center;">
+                <image class="bnt_image" mode="widthFix" bindtap="tcc" data-param="{{poiParams[4]}}" data-category="{{category[4]}}" src="{{isOnCLickPOI_tcc?alternativeimage_tcc:currentimage_tcc}}"></image>
+            </view>
+            <text class="bnt_textstyle">停车场</text>
+        </view>
+        <view class="bnt_container">
+            <view style="display: flex;justify-content: center;">
+                <image class="bnt_image" mode="widthFix" bindtap="ld" data-param="{{poiParams[5]}}" data-category="{{category[5]}}" src="{{isOnCLickPOI_ld?alternativeimage_ld:currentimage_ld}}"></image>
+            </view>
+            <text class="bnt_textstyle">轮渡</text>
+        </view>
+    </view>
+
+    <!-- 定位图标 -->
+    <image class="botton-loc" src="../../img/地图图标/定位.png" bindtap="locJudgement" style="width: 58rpx; height: 58rpx; display: flex; box-sizing: border-box; left: 663rpx; top: 1193rpx; position: absolute"></image>
+
+    <!-- 打卡图标 -->
+    <view wx:if="{{showClockBotton}}" bindtap="clock" style="display: flex; flex-direction: row; justify-content: center; align-items: center;position: absolute;width:300rpx;height:auto;z-index: 6;bottom: 8vh;background-color: #B6813D;border-radius: 40rpx;">
+        <image style="width: 90rpx;margin: 12rpx;" mode="widthFix" src="../../img/地图图标/打卡成功.png"></image>
+        <text style="font-size: 40rpx;color:#f7f0e7;font-weight: bold;">打卡</text>
+    </view>
+
+    <!-- 标记点弹窗 -->
+    <van-popup show="{{showDialog}}" round="true" position="bottom" custom-style="height: 600rpx;" closeable="true" bind:close="onClose">
+        <view style="display:flex;flex-direction:column;height: 100rpx;">
+            <text style="font-size: 40rpx;width:auto;text-justify:center;text-align: center;margin-top: 18rpx;font-weight: bolder;">{{currentMarker.name}}</text>
+        </view>
+        <scroll-view class="dialog" scroll-y show-scrollbar="{{true}}">
+            <text style="text-indent:2em;display: inline-block;text-align:justify;padding-left: 40rpx;padding-right: 40rpx;">{{currentMarker.information}}</text>
+            <view style="display: flex;justify-content: center;margin: 40rpx;">
+                <image style="width: 300rpx;" mode="heightFix" src="{{currentMarker.src}}"></image>
+            </view>
+        </scroll-view>
+        <view style="height:100rpx;margin-bottom: 0px;position: fixed;bottom: 0px;width: 100%;">
+            <button class="dialogButtom" bindtap="navigate">导航</button>
+        </view>
+    </van-popup>
+</view>
+
+<!-- 打卡位置搜寻 -->
+<view wx:if="{{showRadar}}" class="radar-layer">
+    <view class="radar-container">
+        <view class="radar"></view>
+        <view class="nearest" wx:if="{{distance > 10 && distance < 200 && nearest}}">距 {{nearest.name}} {{distance}}米</view>
+        <view class="nearest" bindtap="checkin" wx:elif="{{distance <= 10 && nearest}}">打卡成功!
+            <view>已解锁 "{{nearest.name}}" 主题明信片</view>
+        </view>
+        <view class="nearest" wx:else>附近无打卡点</view>
+    </view>
+</view>

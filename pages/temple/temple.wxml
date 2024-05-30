@@ -1,0 +1,7 @@
+<!--pages/temple/temple.wxml-->
+<view style="background-color: rgb(255, 255, 255);">
+    <view style="width:750rpx;height:{{statusBarHeight}}px"></view>
+    <view class="title" style="width:750rpx;height:{{titleHeight}}px">
+        <view>宫庙</view>
+    </view>
+</view>

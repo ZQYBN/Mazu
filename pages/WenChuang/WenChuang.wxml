@@ -1,0 +1,29 @@
+<!--pages/WenChuang/WenChuang.wxml-->
+<!-- <view style="background-color: rgb(255, 255, 255);">
+    <view style="width:750rpx;height:{{statusBarHeight}}px"></view>
+    <view class="title" style="width:750rpx;height:{{titleHeight}}px">
+        <view>妈祖文创</view>
+    </view>
+</view> -->
+
+<!-- 妈祖文化 -->
+<scroll-view class="scroll-view" scroll-y enhanced="true" show-scrollbar="{{false}}" style="height:{{scroll_height}}px;background-image: url(https://img.qovv.cn/2024/05/03/6634ec0cd3c9a.png);background-size: cover; ">
+    <!-- <wux-wing-blank body-style="margin-left: 20px; margin-right: 20px;margin-top:200rpx" size="large">
+        <van-image class="placeholder" radius="16px" width="100%" height="200rpx" fit="cover" src="cloud://cloud1-7g5vke1x7dd05544.636c-cloud1-7g5vke1x7dd05544-1325794133/妈祖文创/妈祖文创.png" />
+    </wux-wing-blank>
+    <wux-white-space size="large" />
+    <wux-wing-blank body-style="margin-left: 28px; margin-right: 12px" size="large">
+        <van-image bind:click="click_pray" class="placeholder" radius="16px" width="100%" height="300rpx" fit="contain" src="cloud://cloud1-7g5vke1x7dd05544.636c-cloud1-7g5vke1x7dd05544-1325794133/妈祖文创/妈祖灵签.png" />
+    </wux-wing-blank>
+    <wux-white-space size="large" />
+    <wux-wing-blank body-style="margin-left: 28px; margin-right: 12px" size="large">
+        <van-image bind:click="click_wish" class="placeholder" radius="16px" width="100%" height="300rpx" fit="contain" src="cloud://cloud1-7g5vke1x7dd05544.636c-cloud1-7g5vke1x7dd05544-1325794133/妈祖文创/云端祈福.png" />
+    </wux-wing-blank>
+    <wux-white-space size="large" />
+    <wux-wing-blank body-style="margin-left: 28px; margin-right: 12px" size="large">
+        <van-image bind:click="click_postcard" class="placeholder" radius="16px" width="100%" height="300rpx" fit="contain" src="cloud://cloud1-7g5vke1x7dd05544.636c-cloud1-7g5vke1x7dd05544-1325794133/妈祖文创/妈祖信笺.png" />
+    </wux-wing-blank>
+
+    <wux-white-space body-style="height:120rpx" />
+    <wux-safe-area safeArea="bottom" wrapStyle="{{ { background: '#ffffff00' } }}" /> -->
+</scroll-view>

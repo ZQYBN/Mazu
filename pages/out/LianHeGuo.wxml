@@ -1,0 +1,2 @@
+<!--pages/out/LianHeGuo.wxml-->
+<web-view src="{{src}}"> </web-view>

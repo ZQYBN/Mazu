@@ -1,0 +1,112 @@
+<!--pages/AI/AI.wxml-->
+<view>
+    <!-- 内容 -->
+    <view class="view1" >
+        <!-- 顶部安全区 -->
+        <!-- <wux-safe-area safeArea="top" wrapStyle="{{ { background: '#11c1f3' } }}" forceRender /> -->
+        <!-- 模型 -->
+        <view class="xr">
+          <!-- 使用空白背景的模型 -->
+          <xr-basic-alpha
+          disable-scroll
+          id="main-frame"
+          width="{{renderWidth}}"
+          height="{{renderHeight}}"
+          style="width:{{canvas_width}}px;height:{{canvas_height}}px;display:block;background-size: cover;background-position-x: center;"
+          clearColor="{{clearR / 100}} {{clearG / 100}} {{clearB / 100}} {{clearA / 100}}"
+          cubeAlpha="{{cubeAlpha / 100}}"
+          sphereAlpha="{{sphereAlpha / 100}}"
+        />
+        </view>
+        <!-- 对话 -->
+        <view style=" background-color:rgb(187, 194, 228,1);  z-index: 999" >
+            <wux-floating-panel id="wux-floating-panel" defaultAnchors="{{ defaultAnchors }}" bind:heightChange="onHeightChange">
+              <view style="height: 100%; display: flex; flex-direction: column ;">
+              <!-- <view catch:touchend="onTouchEnd" catch:touchmove="onTouchMove" catch:touchstart="onTouchStart" class="wux-floating-panel__hd">
+              </view> -->
+              <view id='1' style="flex-grow: 1; height: calc(100% - {{chat_height}}px);">
+                  <view style="position: relative; height: {{ height }}; background-image: {{ backgroundImage }};">
+                    <scroll-view scroll-into-view="last-view" scroll-top="{{scrollTop}}" scroll-y style="height: {{scrollheigt}};">
+                          <!-- 聊天内容 -->
+                          <view class="page-layout">
+                              <view class="page-body" id="x_chat">
+                                  <view wx:key="index" wx:for="{{chatList}}">
+                                      <view class="chat-item-body">
+                                          <view wx:if="{{item.time!=''}}" class="chat-item-time" >{{item.time}}</view>
+                                          <!-- 其他消息 -->
+                                          <view wx:key="{{index}}" wx:if="{{item.type == '0'}}" class="chat-item-layout chat-left">
+                                              <view class="chat-inner-layout">
+                                                  <view class="chat-item-name">{{item.name}}</view>
+                                                  <view class="chat-item-msg-layout">
+                                                      <image class="chat-item-photo" bindtap="scanClick" src="{{item.photoUrl}}" mode="aspectFit"></image>
+                                                      <view class="chat-inner-msg-left">{{item.msg}}
+                                                        <view wx:if="{{item.imag.length > 0}}"style="display: flex; justify-content: center;align-items: center;width:100%">
+                                                          <image style="width: 300rpx;height: 300rpx;" mode="aspectFit" src="{{item.imag}}"></image>
+                                                        </view>
+                                                      </view>
+                                                  </view>
+                                              </view>
+                                          </view>
+                                      </view>
+                                      <!-- 用户消息 -->
+                                      <view wx:key="{{index}}" wx:if="{{item.type == '1'}}" class="chat-item-layout chat-right">
+                                          <view class="chat-inner-layout">
+                                              <view class="chat-item-yhname">{{item.name}}</view>
+                                              <view class="chat-item-msg-layout">
+                                                  <view class="chat-inner-msg-right">{{item.msg}}</view> 
+                                                  <image class="chat-item-photo" bindtap="scanClick" src="{{item.photoUrl}}" mode="aspectFit"></image>
+                                              </view>
+                                          </view>
+                                      </view>
+                                      <!-- 常见问题 -->
+                                      <view wx:key="{{index}}" wx:if="{{item.type == '2'}}" class="chat-item-layout chat-left">
+                                              <view class="chat-inner-layout">
+                                                  <view class="chat-item-name">{{item.name}}</view>
+                                                  <view class="chat-item-msg-layout">
+                                                      <image class="chat-item-photo" bindtap="scanClick" src="{{item.photoUrl}}" mode="aspectFit"></image>
+                                                      <view class="chat-inner-msg-left">{{item.msg}}
+                                                        <view class="wt" data-id="wt1" bindtap='wt'>{{item.wt1}}</view> 
+                                                        <view class="wt" data-id="wt2" bindtap='wt'>{{item.wt2}}</view> 
+                                                        <view class="wt" data-id="wt3" bindtap='wt'>{{item.wt3}}</view> 
+                                                        <view class="wt" data-id="wt4" bindtap ='wt'>{{item.wt4}}</view>
+                                                      </view>
+                                                  </view>
+                                              </view>
+                                          </view>
+                                    <!-- 停止AI绘画 -->
+                                    <!-- <view wx:key="{{index}}" wx:if="{{item.type == '3'&&isloading==true}}" class="stop">
+                                      <view wx:if="{{item.start==true||item.start=='正在处理'||item.start=='处理完成'||item.start=='图片链接有效，可以正常打开'}}">
+                                        <button size="mini" plain bind:tap="top">{{Button}}</button>
+                                      </view>
+                                    </view> -->
+                                  </view>
+                              </view>
+                          </view>                       
+                    </scroll-view>  
+                    <view class='stop'>
+                      <view wx:if="{{isloading==true}}">
+                        <button size="mini" type="primary" plain bind:tap="top">{{Button}}</button>
+                      </view>
+                    </view>
+                    <view class="yp-stop">
+                    <image src="{{yp_src}}" style="height: 35px;width: 35px;" bindtap='yp' ></image>
+                    </view>
+                </view>
+              </view>
+              <view id='2' style="height: {{chat_height}}px;">
+                 <!-- 对话输入框 -->
+                <view class="input" style="width: 100vw;bottom: {{ chat_height}}px;">
+                        <van-cell-group style="bottom:0;width: 100%;" id="end">
+                            <van-field value="{{ sms }}" bind:change="onChange" bind:confirm="send_Message" center clearable label="" placeholder="请输入聊天内容..." border="{{ false }}" use-button-slot>
+                                <van-button type="primary" id="send" slot="button" loading="{{isloading}}" disabled="{{isdisabled}}" loading-text="发送" bind:click="send_Message">发送</van-button>
+                            </van-field>
+                        </van-cell-group>
+                    </view>
+              </view>
+              
+              </view>
+            </wux-floating-panel>
+        </view>
+    </view>
+</view>
+

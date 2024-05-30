@@ -1,0 +1,29 @@
+<!-- 第一步 -->
+<!-- 添加一个场景 -->
+<xr-scene>
+  <!-- 第二步添加环境光源 -->
+  <xr-light type="ambient" color="1 1 1" intensity="2" />
+  <!--第三步添加一个资源加载器以及资源加载监控器来监测模型的加载情况 -->
+  <xr-assets ind:progress="jx" bind:loaded="cg">
+    <xr-asset-load type="gltf" asset-id="123"  src="/glb/123.glb" />
+  </xr-assets>
+  <!-- 第四步，添加模型 -->
+  <!-- 添加gltf模型 -->
+  <!--模型的位置：position；模型的缩放比例：scale；模型的旋转角度：rotation：表示自动播放；-->
+  <!-- 交互使用shape系列组件 -->
+  <!-- mesh-shape可以完全匹配模型，但开销较高并有顶点限制 -->
+  <!-- cube-shape开销较低，还可以打开debug开关shape-gizmo将它显示出来 -->
+  <xr-gltf node-id="123" model="123" scale="1 2 1" position="0 -1.5 0" anim-autoplay/>
+  <xr-gltf node-id="1" model="" scale="0 0 0" position="0 0 0" anim-autoplay/>
+  <!--第五步添加相机-->
+  <!--给相机添加一个背景-->
+  <!-- 环境元素xr-env来定义环境信息 -->
+  <!-- <xr-assets bind:progress="xjjx" bind:loaded="xjcg">
+    <xr-asset-load type="texture" asset-id="weakme" src='' />
+   <xr-env env-data="xr-frame-team-workspace-day" sky-map="weakme" />
+  </xr-assets> -->
+  <xr-camera
+  position="0 0 3" target="1" background="skybox"
+  clear-color="0 0 0 0" camera-orbit-control
+/>
+</xr-scene>

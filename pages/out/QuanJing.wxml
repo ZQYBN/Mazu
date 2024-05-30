@@ -1,0 +1,2 @@
+<!--pages/out/QuanJing.wxml-->
+<web-view src="{{src}}"> </web-view>

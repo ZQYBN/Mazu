@@ -1,0 +1,10 @@
+<view class="wux-class {{ classes.wrap }}" style="{{ wrapStyle }}">
+    <!-- 遮挡罩 -->
+    <!-- <view class="{{ classes.mask }}" wx:if="{{ moving }}"></view> -->
+    <view class="{{ classes.hd }}" catchtouchstart="onTouchStart" catchtouchmove="onTouchMove" catchtouchend="onTouchEnd">
+        <view class="{{ classes.bar }}"></view>
+    </view>
+    <view class="{{ classes.bd }}">
+        <slot></slot>
+    </view>
+</view>

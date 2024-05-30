@@ -1,0 +1,10 @@
+<!--pages/main/culture/mazu.wxml-->
+<view style="background-color: rgb(255, 255, 255);">
+    <view style="width:750rpx;height:{{statusBarHeight}}px"></view>
+    <view class="title" style="width:750rpx;height:{{titleHeight}}px">
+        <view style="position: fixed;left: 10px;margin-top: 5px;">
+            <van-icon name="arrow-left" size="20px" color="black" bind:click="back_page" />
+        </view>
+        <view>妈祖故事</view>
+    </view>
+</view>

@@ -1,0 +1,7 @@
+<!--pages/My/my.wxml-->
+<view style="background-color: rgb(255, 255, 255);">
+    <view style="width:750rpx;height:{{statusBarHeight}}px"></view>
+    <view class="title" style="width:750rpx;height:{{titleHeight}}px">
+        <view>我的</view>
+    </view>
+</view>

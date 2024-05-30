@@ -1,0 +1,12 @@
+/* pages/WenChuang/WenChuang.wxss */
+.title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.culture{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+}
