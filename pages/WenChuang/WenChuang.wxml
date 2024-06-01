@@ -8,22 +8,39 @@
 
 <!-- 妈祖文化 -->
 <scroll-view class="scroll-view" scroll-y enhanced="true" show-scrollbar="{{false}}" style="height:{{scroll_height}}px;background-image: url(https://img.qovv.cn/2024/05/03/6634ec0cd3c9a.png);background-size: cover; ">
-    <!-- <wux-wing-blank body-style="margin-left: 20px; margin-right: 20px;margin-top:200rpx" size="large">
-        <van-image class="placeholder" radius="16px" width="100%" height="200rpx" fit="cover" src="cloud://cloud1-7g5vke1x7dd05544.636c-cloud1-7g5vke1x7dd05544-1325794133/妈祖文创/妈祖文创.png" />
-    </wux-wing-blank>
-    <wux-white-space size="large" />
-    <wux-wing-blank body-style="margin-left: 28px; margin-right: 12px" size="large">
-        <van-image bind:click="click_pray" class="placeholder" radius="16px" width="100%" height="300rpx" fit="contain" src="cloud://cloud1-7g5vke1x7dd05544.636c-cloud1-7g5vke1x7dd05544-1325794133/妈祖文创/妈祖灵签.png" />
-    </wux-wing-blank>
-    <wux-white-space size="large" />
-    <wux-wing-blank body-style="margin-left: 28px; margin-right: 12px" size="large">
-        <van-image bind:click="click_wish" class="placeholder" radius="16px" width="100%" height="300rpx" fit="contain" src="cloud://cloud1-7g5vke1x7dd05544.636c-cloud1-7g5vke1x7dd05544-1325794133/妈祖文创/云端祈福.png" />
-    </wux-wing-blank>
-    <wux-white-space size="large" />
-    <wux-wing-blank body-style="margin-left: 28px; margin-right: 12px" size="large">
-        <van-image bind:click="click_postcard" class="placeholder" radius="16px" width="100%" height="300rpx" fit="contain" src="cloud://cloud1-7g5vke1x7dd05544.636c-cloud1-7g5vke1x7dd05544-1325794133/妈祖文创/妈祖信笺.png" />
-    </wux-wing-blank>
+  <!--空白行-->
+  <wux-white-space size="large" />
+  <wux-white-space size="large" />
+  <wux-white-space size="large" />
+  <wux-white-space size="large" />
+  <wux-white-space size="large" />
+  
+<van-search
+  value="{{ value }}"
+  input-align="center"
+  class="sh"
+  placeholder="请输入搜索关键词"
+  use-action-slot
+  bind:change="onChange"
+  bind:search="onSearch"
+>
+  <view class="v1" slot="action" bind:tap="onClick" >搜索</view>
+</van-search>
 
-    <wux-white-space body-style="height:120rpx" />
-    <wux-safe-area safeArea="bottom" wrapStyle="{{ { background: '#ffffff00' } }}" /> -->
+<wux-white-space size="large" />
+  <wux-white-space size="large" />
+  <wux-white-space size="large" />
+  <wux-white-space size="large" />
+
+
+  <van-grid>
+    <van-grid-item icon="img\商城图标(2)\妈祖车挂(1).png" text="售价：10.00RMB" />
+    <van-grid-item icon="photo-o" text="文字" />
+    <van-grid-item icon="photo-o" text="文字" />
+     <van-grid-item icon="photo-o" text="文字" />
+  </van-grid>
+
+
+
+   
 </scroll-view>

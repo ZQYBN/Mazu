@@ -2,5 +2,6 @@
     "navigationBarTitleText": "Footer",
     "usingComponents": {
         "wux-footer": "/miniprogram_npm/wux-weapp/footer/index"
+      
     }
 }
