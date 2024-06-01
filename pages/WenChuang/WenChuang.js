@@ -1,108 +1,77 @@
-// pages/WenChuang/WenChuang.js
 Page({
+  data: {
+    statusBarHeight: 20,
+    titleHeight: 50,
+    scroll_height: 1000,
+    value: '',
+    activeTab: 0,
+    products: [
+      { id: 1, name: '商品1', price: 50.00, image: 'https://example.com/image7.jpg' }
+    ]
+  },
+  
+  onSearch(event) {
+    console.log('搜索关键词:', event.detail);
+    // 在这里处理搜索逻辑
+  },
 
-    /**
-     * 页面的初始数据
-     */
-    data: {
-      value: '',
-    },
-    onChange(e) {
-      this.setData({
-        value: e.detail,
-      });
-    },
-    onSearch() {
-      Toast('搜索' + this.data.value);
-    },
-    onClick() {
-      Toast('搜索' + this.data.value);
-    },
-    /**
-     * 生命周期函数--监听页面加载
-     */
-    onLoad(options) {
-        const systemInfo = wx.getSystemInfoSync();
-        // 状态栏高度 
-        let statusBarHeight = systemInfo.statusBarHeight
-        // 标题栏高度
-        let titleHeight = 46
-        // 屏幕高度
-        const screenHeight = systemInfo.windowHeight;
-        this.setData({
-            statusBarHeight: statusBarHeight,
-            titleHeight: titleHeight,
-            scroll_height:screenHeight-statusBarHeight-titleHeight
-        });
-    },
+  onCancel() {
+    console.log('取消搜索');
+    // 在这里处理取消搜索逻辑
+  },
+  
+  onLoad(options) {
+    const systemInfo = wx.getSystemInfoSync();
+    let statusBarHeight = systemInfo.statusBarHeight;
+    let titleHeight = 46;
+    const screenHeight = systemInfo.windowHeight;
+    this.setData({
+      statusBarHeight: statusBarHeight,
+      titleHeight: titleHeight,
+      scroll_height: screenHeight - statusBarHeight - titleHeight
+    });
+  },
 
-    /**
-     * 生命周期函数--监听页面初次渲染完成
-     */
-    onReady() {
+  onReady() {},
 
-    },
+  onShow() {
+    this.getTabBar().setData({
+      active: "WenChuang"
+    });
+  },
 
-    /**
-     * 生命周期函数--监听页面显示
-     */
-    onShow() {
-        this.getTabBar().setData({
-            // 根据list 的索引
-            active: "WenChuang"
-        })
-    },
+  onHide() {},
 
-    /**
-     * 生命周期函数--监听页面隐藏
-     */
-    onHide() {
+  onUnload() {},
 
-    },
+  onPullDownRefresh() {},
 
-    /**
-     * 生命周期函数--监听页面卸载
-     */
-    onUnload() {
+  onReachBottom() {},
 
-    },
+  onShareAppMessage() {},
 
-    /**
-     * 页面相关事件处理函数--监听用户下拉动作
-     */
-    onPullDownRefresh() {
+  onItemTap(event) {
+    const productId = event.currentTarget.dataset.productId;
+    wx.navigateTo({
+      url: `/pages/productDetail/productDetail?id=${productId}`,
+    });
+  },
 
-    },
+  onTabChange(event) {
+    this.setData({
+      activeTab: event.detail.index,
+    });
+    // add logic to load the corresponding tab's data
+  },
 
-    /**
-     * 页面上拉触底事件的处理函数
-     */
-    onReachBottom() {
+  onChange(event) {
+    this.setData({
+      value: event.detail,
+    });
+  },
 
-    },
+  onClick() {
+    // handle search button click
+  }
+});
 
-    /**
-     * 用户点击右上角分享
-     */
-    onShareAppMessage() {
-
-    },
-    click_pray: function () {
-        console.log("点击了线上抽签")
-        wx.navigateTo({
-            url: '/pray/pages/pray_main/pray',
-        })
-    },
-    click_wish: function () {
-        console.log("点击了云端祈福")
-        wx.navigateTo({
-            url: '/pages/pray/pray_input/pray_in',
-        })
-    },
-    click_postcard: function () {
-        console.log("点击了明信片")
-        wx.navigateTo({
-            url: '/postcard/pages/postcard/postcard',
-        })
-    },
-})
