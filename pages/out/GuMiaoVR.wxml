@@ -1,0 +1,2 @@
+<!--pages/out/GuMiaoVR.wxml-->
+<web-view src="{{src}}"> </web-view>

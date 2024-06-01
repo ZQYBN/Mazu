@@ -1,0 +1,2 @@
+<!--pages/out/SanWeiMoXing.wxml-->
+<web-view src="{{src}}"> </web-view>
