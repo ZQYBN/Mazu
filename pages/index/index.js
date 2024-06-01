@@ -1,3 +1,5 @@
+const { View } = require("XrFrame/kanata/lib/index");
+
 // pages/index/index.js
 Page({
 
@@ -137,6 +139,8 @@ Page({
             url: '../out/LianHeGuo?src=' + encodeURIComponent("http://xmutsrsc.com:4000/mcrb/#/"),
           })
     }
+
+    <View>
 })
 
 
