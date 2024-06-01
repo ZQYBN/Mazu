@@ -1,29 +1,82 @@
-<!--pages/WenChuang/WenChuang.wxml-->
-<!-- <view style="background-color: rgb(255, 255, 255);">
-    <view style="width:750rpx;height:{{statusBarHeight}}px"></view>
-    <view class="title" style="width:750rpx;height:{{titleHeight}}px">
-        <view>妈祖文创</view>
-    </view>
-</view> -->
-
-<!-- 妈祖文化 -->
 <scroll-view class="scroll-view" scroll-y enhanced="true" show-scrollbar="{{false}}" style="height:{{scroll_height}}px;background-image: url(https://img.qovv.cn/2024/05/03/6634ec0cd3c9a.png);background-size: cover; ">
-    <!-- <wux-wing-blank body-style="margin-left: 20px; margin-right: 20px;margin-top:200rpx" size="large">
-        <van-image class="placeholder" radius="16px" width="100%" height="200rpx" fit="cover" src="cloud://cloud1-7g5vke1x7dd05544.636c-cloud1-7g5vke1x7dd05544-1325794133/妈祖文创/妈祖文创.png" />
-    </wux-wing-blank>
-    <wux-white-space size="large" />
-    <wux-wing-blank body-style="margin-left: 28px; margin-right: 12px" size="large">
-        <van-image bind:click="click_pray" class="placeholder" radius="16px" width="100%" height="300rpx" fit="contain" src="cloud://cloud1-7g5vke1x7dd05544.636c-cloud1-7g5vke1x7dd05544-1325794133/妈祖文创/妈祖灵签.png" />
-    </wux-wing-blank>
-    <wux-white-space size="large" />
-    <wux-wing-blank body-style="margin-left: 28px; margin-right: 12px" size="large">
-        <van-image bind:click="click_wish" class="placeholder" radius="16px" width="100%" height="300rpx" fit="contain" src="cloud://cloud1-7g5vke1x7dd05544.636c-cloud1-7g5vke1x7dd05544-1325794133/妈祖文创/云端祈福.png" />
-    </wux-wing-blank>
-    <wux-white-space size="large" />
-    <wux-wing-blank body-style="margin-left: 28px; margin-right: 12px" size="large">
-        <van-image bind:click="click_postcard" class="placeholder" radius="16px" width="100%" height="300rpx" fit="contain" src="cloud://cloud1-7g5vke1x7dd05544.636c-cloud1-7g5vke1x7dd05544-1325794133/妈祖文创/妈祖信笺.png" />
-    </wux-wing-blank>
 
-    <wux-white-space body-style="height:120rpx" />
-    <wux-safe-area safeArea="bottom" wrapStyle="{{ { background: '#ffffff00' } }}" /> -->
+  <!-- 添加空白行 -->
+  <view class="page__bd">
+    <view class="placeholder"></view>
+    <wux-white-space size="large" />
+    <view class="placeholder"></view>
+    <wux-white-space size="large" />
+    <view class="placeholder"></view>
+    <wux-white-space size="large" />
+    <view class="placeholder"></view>
+    <wux-white-space size="large" />
+    <view class="placeholder"></view>
+  </view>
+
+  <!-- 添加搜索框 -->
+  <van-search value="{{ value }}" use-action-slot bind:change="onChange" bind:search="onSearch">
+    <view slot="action" bind:tap="onClick">搜索</view>
+  </van-search>
+  <!-- 搜索框下面的推荐 -->
+  <van-tabs active="{{activeTab}}" bind:change="onTabChange">
+    <van-tab title="Mazu手办" />
+    <van-tab title="食品" />
+    <van-tab title="首饰" />
+    <van-tab title="T恤" />
+    <van-tab title="手机壳" />
+    <van-tab title="分类" />
+  </van-tabs>
+
+  <!-- 横向滑动视图 -->
+  <!-- 信笺 -->
+  <view style="margin-top: 20px; padding-left: 16px; padding-right: 16px;">
+    <view style="font-size: 16px; font-weight: bold; margin-bottom: 10px;">信笺</view>
+    <scroll-view scroll-x style="white-space: nowrap;">
+      <view style="display: inline-block; width: 200rpx; margin-right: 16rpx;">
+        <image src="https://example.com/image1.jpg" style="width: 100%; height: 200rpx;" />
+        <view style="text-align: center;">商品1</view>
+      </view>
+      <view style="display: inline-block; width: 200rpx; margin-right: 16rpx;">
+        <image src="https://example.com/image2.jpg" style="width: 100%; height: 200rpx;" />
+        <view style="text-align: center;">商品2</view>
+      </view>
+      <view style="display: inline-block; width: 200rpx; margin-right: 16rpx;">
+        <image src="https://example.com/image3.jpg" style="width: 100%; height: 200rpx;" />
+        <view style="text-align: center;">商品3</view>
+      </view>
+    </scroll-view>
+  </view>
+  <!-- 文创 -->
+  <view style="margin-top: 20px; padding-left: 16px; padding-right: 16px;">
+    <view style="font-size: 16px; font-weight: bold; margin-bottom: 10px;">文创</view>
+    <scroll-view scroll-x style="white-space: nowrap;">
+      <view style="display: inline-block; width: 200rpx; margin-right: 16rpx;">
+        <image src="https://example.com/image1.jpg" style="width: 100%; height: 200rpx;" />
+        <view style="text-align: center;">商品1</view>
+      </view>
+      <view style="display: inline-block; width: 200rpx; margin-right: 16rpx;">
+        <image src="https://example.com/image2.jpg" style="width: 100%; height: 200rpx;" />
+        <view style="text-align: center;">商品2</view>
+      </view>
+      <view style="display: inline-block; width: 200rpx; margin-right: 16rpx;">
+        <image src="https://example.com/image3.jpg" style="width: 100%; height: 200rpx;" />
+        <view style="text-align: center;">商品3</view>
+      </view>
+    </scroll-view>
+  </view>
+
+  <!-- 加个空白行 -->
+  <wux-white-space size="large" />
+  <view class="placeholder"></view>
+  <wux-white-space size="large" />
+  <view class="placeholder"></view>
+
+  <!-- mazu手办 -->
+  <view style="font-size: 16px; font-weight: bold; margin-bottom: 10px;">Mazu手办</view>
+  <van-grid column-num="1" border="{{ false }}">
+    <van-grid-item use-slot wx:for="{{ 1 }}" wx:for-item="index">
+      <image style="width: 100%; height: 180px;" src="#" />
+    </van-grid-item>
+  </van-grid>
+
 </scroll-view>

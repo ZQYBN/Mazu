@@ -5,7 +5,20 @@ Page({
      * 页面的初始数据
      */
     data: {
-
+      statusBarHeight: 20,  // 示例值，请根据实际情况调整
+      titleHeight: 50,      // 示例值，请根据实际情况调整
+      scroll_height: 1000,  // 示例值，请根据实际情况调整
+      value: ''
+    },
+  
+    onSearch(event) {
+      console.log('搜索关键词:', event.detail);
+      // 在这里处理搜索逻辑
+    },
+  
+    onCancel() {
+      console.log('取消搜索');
+      // 在这里处理取消搜索逻辑
     },
 
     /**
