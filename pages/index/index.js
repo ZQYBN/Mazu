@@ -93,23 +93,32 @@ Page({
             url: '/postcard/pages/postcard/postcard',
         })
     },
-    click_story: function () {
-        console.log("点击了妈祖故事")
+    click_dianyun: function () {
+        console.log("点击了祖庙点云")
         // wx.navigateTo({
         //     url: '/pages/main/culture/mazu',
         // })
         wx.navigateTo({
-            url: '../out/LianHeGuo?src=' + encodeURIComponent("https://mp.weixin.qq.com/s/djajtOdFRI0dGLPzUWEdIw"),
+            url: '../out/LianHeGuo?src=' + encodeURIComponent("http://xmutsrsc.com/PointCloud/MZDLAZ1/"),
           })
     },
-    click_temple: function () {
-        console.log("点击了妈祖庙")
+    click_temple_vr: function () {
+        console.log("点击了古庙VR")
         // wx.navigateTo({
         //     url: '/pages/main/culture/temple',
         // })
         wx.navigateTo({
-            url: '../out/LianHeGuo?src=' + encodeURIComponent("https://mp.weixin.qq.com/s/tiqng7R3pwKJt_53Z3kLPg"),
+            url: '../out/LianHeGuo?src=' + encodeURIComponent("http://xmutsrsc.com/PanoramaVR/home1/"),
           })
+    },
+    click_3d: function () {
+      console.log("点击了三维模型")
+      // wx.navigateTo({
+      //     url: '/pages/main/culture/temple',
+      // })
+      wx.navigateTo({
+          url: '../out/LianHeGuo?src=' + encodeURIComponent("http://xmutsrsc.com/3DPlatform/MZJZ.html"),
+        })
     },
     click_QuanJing: function () {
         console.log("点击了湄洲全景")
