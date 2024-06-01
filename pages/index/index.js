@@ -1,5 +1,3 @@
-const { View } = require("XrFrame/kanata/lib/index");
-
 // pages/index/index.js
 Page({
 
@@ -95,52 +93,71 @@ Page({
             url: '/postcard/pages/postcard/postcard',
         })
     },
-    click_dianyun: function () {
-        console.log("点击了祖庙点云")
-        // wx.navigateTo({
-        //     url: '/pages/main/culture/mazu',
-        // })
-        wx.navigateTo({
-            url: '../out/LianHeGuo?src=' + encodeURIComponent("http://xmutsrsc.com/PointCloud/MZDLAZ1/"),
-          })
-    },
-    click_temple_vr: function () {
-        console.log("点击了古庙VR")
-        // wx.navigateTo({
-        //     url: '/pages/main/culture/temple',
-        // })
-        wx.navigateTo({
-            url: '../out/LianHeGuo?src=' + encodeURIComponent("http://xmutsrsc.com/PanoramaVR/home1/"),
-          })
-    },
-    click_3d: function () {
-      console.log("点击了三维模型")
+    click_story: function () {
+      console.log("点击了妈祖故事")
+      // wx.navigateTo({
+      //     url: '/pages/main/culture/mazu',
+      // })
+      wx.navigateTo({
+          url: '../out/LianHeGuo?src=' + encodeURIComponent("https://mp.weixin.qq.com/s/djajtOdFRI0dGLPzUWEdIw"),
+        })
+  },
+  click_temple: function () {
+      console.log("点击了妈祖庙")
       // wx.navigateTo({
       //     url: '/pages/main/culture/temple',
       // })
       wx.navigateTo({
-          url: '../out/LianHeGuo?src=' + encodeURIComponent("http://xmutsrsc.com/3DPlatform/MZJZ.html"),
+          url: '../out/LianHeGuo?src=' + encodeURIComponent("https://mp.weixin.qq.com/s/tiqng7R3pwKJt_53Z3kLPg"),
         })
-    },
+  },
+    // click_3d: function () {
+    //   console.log("点击了三维模型1")
+    //   wx.navigateTo({
+    //       url: '../out/LianHeGuo?src=' + encodeURIComponent("http://xmutsrsc.com/3DPlatform/MZJZ.html"),
+    //     })
+    // },
     click_QuanJing: function () {
+      //妈祖祖庙全景导航系统
         console.log("点击了湄洲全景")
         wx.navigateTo({
             url: '../out/QuanJing?src=' + encodeURIComponent("http://xmutsrsc.com/Panorama/index.html"),
           })
     },
     click_xmutsrsc: function () {
+      //世界妈祖文化公共交流信息平台
         console.log("点击了xmutsrsc")
         wx.navigateTo({
             url: '../out/xmutsrsc?src=' + encodeURIComponent("http://xmutsrsc.com:4000/mzmap/#/welcome"),
           })
     },
     click_LianHeGuo:function () {
+      //联合国教科文组织-妈祖文化研究基地
         wx.navigateTo({
             url: '../out/LianHeGuo?src=' + encodeURIComponent("http://xmutsrsc.com:4000/mcrb/#/"),
           })
+    },
+    click_GuMiaoVR:function () {
+      //古庙VR
+      console.log("点击了古庙VR")
+      wx.navigateTo({
+        url: '../out/GuMiaoVR?src=' + encodeURIComponent("http://xmutsrsc.com/PanoramaVR/home1/"),
+      })
+    },
+    click_ZuMiaoDianYun:function () {
+      //祖庙点云
+      console.log("点击了祖庙点云")
+      wx.navigateTo({
+        url: '../out/ZuMiaoDianYun?src=' + encodeURIComponent("http://xmutsrsc.com/PointCloud/MZDLAZ1/"),
+      })
+    },
+    click_SanWeiMoXing:function () {
+      //三维模型
+      console.log("点击了三维模型")
+      wx.navigateTo({
+        url: '../out/SanWeiMoXing?src=' + encodeURIComponent("http://xmutsrsc.com/3DPlatform/MZJZ.html"),
+      })
     }
-
-    <View>
 })
 
 

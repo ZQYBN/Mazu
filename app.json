@@ -14,7 +14,10 @@
     "pages/out/LianHeGuo",
     "pages/out/culture",
     "pages/out/temple",
-    "pages/WenChuang/WenChuang"
+    "pages/WenChuang/WenChuang",
+    "pages/out/GuMiaoVR",
+    "pages/out/ZuMiaoDianYun",
+    "pages/out/SanWeiMoXing"
   ],
   "window": {
     "navigationBarTextStyle": "black",
