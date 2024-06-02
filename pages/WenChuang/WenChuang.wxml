@@ -1,29 +1,100 @@
-<!--pages/WenChuang/WenChuang.wxml-->
-<!-- <view style="background-color: rgb(255, 255, 255);">
-    <view style="width:750rpx;height:{{statusBarHeight}}px"></view>
-    <view class="title" style="width:750rpx;height:{{titleHeight}}px">
-        <view>妈祖文创</view>
-    </view>
-</view> -->
+<scroll-view class="scroll-view" scroll-y enhanced="true" show-scrollbar="{{false}}" style="height:{{scroll_height}}px;background-image: url(https://img.qovv.cn/2024/05/03/6634ec0cd3c9a.png);background-size: cover;">
+  <!-- 添加空白行 -->
+  <view class="page__bd">
+    
+    <view class="placeholder"></view>
+    <wux-white-space size="large" />
+    <view class="placeholder"></view>
+    <wux-white-space size="large" />
+    <view class="placeholder"></view>
+    <wux-white-space size="large" />
+    <view class="placeholder"></view>
+    <wux-white-space size="large" />
+    <view style="text-align: center; line-height: 40px; color: black;font-weight: bolder;">妈祖商城</view>
+    <view class="placeholder"></view>
+  </view>
 
-<!-- 妈祖文化 -->
-<scroll-view class="scroll-view" scroll-y enhanced="true" show-scrollbar="{{false}}" style="height:{{scroll_height}}px;background-image: url(https://img.qovv.cn/2024/05/03/6634ec0cd3c9a.png);background-size: cover; ">
-    <!-- <wux-wing-blank body-style="margin-left: 20px; margin-right: 20px;margin-top:200rpx" size="large">
-        <van-image class="placeholder" radius="16px" width="100%" height="200rpx" fit="cover" src="cloud://cloud1-7g5vke1x7dd05544.636c-cloud1-7g5vke1x7dd05544-1325794133/妈祖文创/妈祖文创.png" />
-    </wux-wing-blank>
-    <wux-white-space size="large" />
-    <wux-wing-blank body-style="margin-left: 28px; margin-right: 12px" size="large">
-        <van-image bind:click="click_pray" class="placeholder" radius="16px" width="100%" height="300rpx" fit="contain" src="cloud://cloud1-7g5vke1x7dd05544.636c-cloud1-7g5vke1x7dd05544-1325794133/妈祖文创/妈祖灵签.png" />
-    </wux-wing-blank>
-    <wux-white-space size="large" />
-    <wux-wing-blank body-style="margin-left: 28px; margin-right: 12px" size="large">
-        <van-image bind:click="click_wish" class="placeholder" radius="16px" width="100%" height="300rpx" fit="contain" src="cloud://cloud1-7g5vke1x7dd05544.636c-cloud1-7g5vke1x7dd05544-1325794133/妈祖文创/云端祈福.png" />
-    </wux-wing-blank>
-    <wux-white-space size="large" />
-    <wux-wing-blank body-style="margin-left: 28px; margin-right: 12px" size="large">
-        <van-image bind:click="click_postcard" class="placeholder" radius="16px" width="100%" height="300rpx" fit="contain" src="cloud://cloud1-7g5vke1x7dd05544.636c-cloud1-7g5vke1x7dd05544-1325794133/妈祖文创/妈祖信笺.png" />
-    </wux-wing-blank>
+  <!-- 添加搜索框 -->
+  <van-search value="{{ value }}" use-action-slot bind:change="onChange" bind:search="onSearch">
+    <view slot="action" bind:tap="onClick">搜索</view>
+  </van-search>
+  <!-- 搜索框下面的推荐 -->
+  <van-tabs active="{{activeTab}}" bind:change="onTabChange">
+    <van-tab title="Mazu手办" />
+    <van-tab title="食品" />
+    <van-tab title="首饰" />
+    <van-tab title="衣服" />
+    <van-tab title="手机壳" />
+    <van-tab title="分类" />
+  </van-tabs>
 
-    <wux-white-space body-style="height:120rpx" />
-    <wux-safe-area safeArea="bottom" wrapStyle="{{ { background: '#ffffff00' } }}" /> -->
+  <!-- 信笺 -->
+  <view class="section" style="background-color: #fff8e1; border-radius: 20px; height: auto;">
+    <view class="section-title">信笺</view>
+    <scroll-view scroll-x style="white-space: nowrap;">
+      <view class="product" bindtap="onItemTap" data-product-id="1">
+        <image src="cloud://cloud1-7g5vke1x7dd05544.636c-cloud1-7g5vke1x7dd05544-1325794133/明信片页面/写实风.jpg" class="product-image" />
+        <view class="product-title">写实风格</view>
+        <view class="product-price">10.00RMB/张</view>
+      </view>
+      <view class="product" bindtap="onItemTap" data-product-id="2">
+        <image src="cloud://cloud1-7g5vke1x7dd05544.636c-cloud1-7g5vke1x7dd05544-1325794133/明信片页面/动漫风.jpg" class="product-image" />
+        <view class="product-title">动漫风格</view>
+        <view class="product-price">10.00RMB/张</view>
+      </view>
+      <view class="product" bindtap="onItemTap" data-product-id="3">
+        <image src="cloud://cloud1-7g5vke1x7dd05544.636c-cloud1-7g5vke1x7dd05544-1325794133/明信片页面/山水风.jpg" class="product-image" />
+        <view class="product-title">水墨风格</view>
+        <view class="product-price">10.00RMB/张</view>
+      </view>
+      <view class="product" bindtap="onItemTap" data-product-id="4">
+        <image src="cloud://cloud1-7g5vke1x7dd05544.636c-cloud1-7g5vke1x7dd05544-1325794133/明信片页面/炫彩风.jpg" class="product-image" />
+        <view class="product-title">炫彩风格</view>
+        <view class="product-price">10.00RMB/张</view>
+      </view>
+    </scroll-view>
+  </view>
+
+  <!-- 文创 -->
+  <view class="section" style="background-color: #fff8e1;border-radius: 20px; height: auto;">
+    <view class="section-title">文创</view>
+    <scroll-view scroll-x style="white-space: nowrap;">
+      <view class="product" bindtap="onItemTap" data-product-id="5">
+        <image src="cloud://cloud1-7g5vke1x7dd05544.636c-cloud1-7g5vke1x7dd05544-1325794133/商城图标(2)/妈祖T恤(1).png" class="product-image" />
+        <view class="product-title">妈祖短袖</view>
+        <view class="product-price">20.00RMB/件</view>
+      </view>
+      <view class="product" bindtap="onItemTap" data-product-id="6">
+        <image src="cloud://cloud1-7g5vke1x7dd05544.636c-cloud1-7g5vke1x7dd05544-1325794133/商城图标(2)/妈祖纪念币.png" class="product-image" />
+        <view class="product-title">妈祖纪念币</view>
+        <view class="product-price">15.00RMB/件</view>
+      </view>
+      <view class="product" bindtap="onItemTap" data-product-id="7">
+        <image src="cloud://cloud1-7g5vke1x7dd05544.636c-cloud1-7g5vke1x7dd05544-1325794133/商城图标(2)/妈祖护身福袋(1).png" class="product-image" />
+        <view class="product-title">妈祖护身福袋</view>
+        <view class="product-price">10.00RMB/件</view>
+      </view>
+      <view class="product" bindtap="onItemTap" data-product-id="8">
+        <image src="cloud://cloud1-7g5vke1x7dd05544.636c-cloud1-7g5vke1x7dd05544-1325794133/商城图标(2)/妈祖车挂(1).png" class="product-image" />
+        <view class="product-title">妈祖车挂</view>
+        <view class="product-price">15.00RMB/件</view>
+      </view>
+      <view class="product" bindtap="onItemTap" data-product-id="9">
+        <image src="cloud://cloud1-7g5vke1x7dd05544.636c-cloud1-7g5vke1x7dd05544-1325794133/商城图标(2)/妈祖糕(1)(1).png" class="product-image" />
+        <view class="product-title">妈祖糕</view>
+        <view class="product-price">15.00RMB/件</view>
+      </view>
+    </scroll-view>
+  </view>
+
+  <!-- mazu手办 -->
+  <view class="section" style="background-color: #fff8e1;border-radius: 20px; height: auto;font-size: 0px;line-height: 0px; ">
+    <view class="section-title" style="line-height:20px;">季节爆款</view>
+    <van-grid column-num="1" border="{{ false }}">
+      <van-grid-item use-slot wx:for="{{products}}" wx:key="index" bindtap="onItemTap" data-product-id="{{item.id}}">
+        <image class="mazu1"  src="cloud://cloud1-7g5vke1x7dd05544.636c-cloud1-7g5vke1x7dd05544-1325794133/数字人形象/mazu.png" />
+        
+      </van-grid-item>
+    </van-grid>
+  </view>
 </scroll-view>

@@ -28,7 +28,8 @@
     "compileHotReLoad": false,
     "ignoreUploadUnusedFiles": false,
     "condition": false,
-    "compileWorklet": false
+    "compileWorklet": false,
+    "swc": false
   },
   "condition": {},
   "editorSetting": {

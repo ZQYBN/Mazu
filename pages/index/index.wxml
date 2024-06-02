@@ -74,15 +74,15 @@
                         </van-col>
                         <van-col span="6">
                         <!-- 古庙VR -->
-                            <van-image bind:click="click_GuMiaoVR" class="mazu_img" style="margin:0% ;" radius="16px" width="90%" height="200rpx" fit="contain" src="https://636c-cloud1-7g5vke1x7dd05544-1325794133.tcb.qcloud.la/%E5%A6%88%E7%A5%96%E8%B5%84%E8%AE%AF/%E5%8F%A4%E5%BA%99VR.png?sign=372a6904580d19568d8a90fa57b287b0&t=1716906840" />
+                            <van-image bind:click="click_temple_vr" class="mazu_img" style="margin:0% ;" radius="16px" width="90%" height="200rpx" fit="contain" src="https://636c-cloud1-7g5vke1x7dd05544-1325794133.tcb.qcloud.la/%E5%A6%88%E7%A5%96%E8%B5%84%E8%AE%AF/%E5%8F%A4%E5%BA%99VR.png?sign=372a6904580d19568d8a90fa57b287b0&t=1716906840" />
                         </van-col>
                         <van-col span="6">
                         <!-- 祖庙点云 -->
-                            <van-image bind:click="click_ZuMiaoDianYun" class="mazu_img" style="margin:0 ;" radius="16px" width="90%" height="200rpx" fit="contain" src="https://636c-cloud1-7g5vke1x7dd05544-1325794133.tcb.qcloud.la/%E5%A6%88%E7%A5%96%E8%B5%84%E8%AE%AF/%E7%A5%96%E5%BA%99%E7%82%B9%E4%BA%91.png?sign=cc20130d511350878aca93dd35c38971&t=1716906859" />
+                            <van-image bind:click="click_dianyun" class="mazu_img" style="margin:0 ;" radius="16px" width="90%" height="200rpx" fit="contain" src="https://636c-cloud1-7g5vke1x7dd05544-1325794133.tcb.qcloud.la/%E5%A6%88%E7%A5%96%E8%B5%84%E8%AE%AF/%E7%A5%96%E5%BA%99%E7%82%B9%E4%BA%91.png?sign=cc20130d511350878aca93dd35c38971&t=1716906859" />
                         </van-col>
                         <van-col span="6">
                         <!-- 三维模型 -->
-                            <van-image bind:click="click_SanWeiMoXing" class="mazu_img" style="margin:0% ;" radius="16px" width="90%" height="200rpx" fit="contain" src="https://636c-cloud1-7g5vke1x7dd05544-1325794133.tcb.qcloud.la/%E5%A6%88%E7%A5%96%E8%B5%84%E8%AE%AF/%E4%B8%89%E7%BB%B4%E6%A8%A1%E5%9E%8B.png?sign=50d2d69085e4c49f2399c7e5f3efb513&t=1716907443" />
+                            <van-image bind:click="click_3d" class="mazu_img" style="margin:0% ;" radius="16px" width="90%" height="200rpx" fit="contain" src="https://636c-cloud1-7g5vke1x7dd05544-1325794133.tcb.qcloud.la/%E5%A6%88%E7%A5%96%E8%B5%84%E8%AE%AF/%E4%B8%89%E7%BB%B4%E6%A8%A1%E5%9E%8B.png?sign=50d2d69085e4c49f2399c7e5f3efb513&t=1716907443" />
                         </van-col>
                     </van-row>
                     <van-row>

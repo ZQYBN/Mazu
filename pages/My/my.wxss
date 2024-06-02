@@ -4,3 +4,43 @@
     align-items: center;
     justify-content: center;
 }
+.part1 {
+  display: flex;
+  align-items: center;
+  background-color: #86a9d7;
+  height: 12rem;
+
+}
+.UserImage{
+  margin-left: 3rem;
+}
+.user-info {
+  margin-left: 2rem; /* 调整距离 */
+  font-size: larger;
+}
+.UserName{
+  font-size: 2rem;
+  color:white;
+  font-family: "STKaiti", "楷体", "Kaiti SC", serif; /* 设置字体为正楷 */
+}
+.UserId{
+  font-size: 1rem;
+  color: gray;
+}
+
+ .item {
+  border: none; /* 无边框 */
+  background-color: white; /* 纯白色背景 */
+  border-radius: 15px; /* 圆角 */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 阴影 */
+  margin: 0 10px; /* 与页面侧边保持 10px 的距离 */
+  margin-bottom: 10rpx;
+}
+.gridTitle{
+  position: sticky; /* 让标题固定 */
+  top: 0; /* 顶部对齐 */
+  background-color: white; /* 背景色为白色 */
+  padding: 1rem; /* 添加一些内边距 */
+  z-index: 1; /* 提高层级，确保标题在顶部 */
+}
+

@@ -5,7 +5,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+     UserImage:"/img/AI_2.png",//头像
+     UserName:"阿湄爱妈祖",//用户名
+     UserId:"1062405010"//用户编号
   },
 
   /**

@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/WenChuang/WenChuang",
     "pages/AI/AI",
     "pages/index/index",
     "pages/logs/logs",
@@ -13,11 +14,7 @@
     "pages/out/xmutsrsc",
     "pages/out/LianHeGuo",
     "pages/out/culture",
-    "pages/out/temple",
-    "pages/WenChuang/WenChuang",
-    "pages/out/GuMiaoVR",
-    "pages/out/ZuMiaoDianYun",
-    "pages/out/SanWeiMoXing"
+    "pages/out/temple"
   ],
   "window": {
     "navigationBarTextStyle": "black",
@@ -55,6 +52,7 @@
   ],
   "preloadRule": {},
   "usingComponents": {
+    "van-search": "@vant/weapp/search/index",
     "van-grid": "@vant/weapp/grid/index",
     "van-grid-item": "@vant/weapp/grid-item/index",
     "van-image": "@vant/weapp/image/index",
