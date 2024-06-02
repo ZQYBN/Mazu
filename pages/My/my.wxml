@@ -1,7 +1,83 @@
 <!--pages/My/my.wxml-->
-<view style="background-color: rgb(255, 255, 255);">
+<view style="background-color: rgb(255, 255, 255);padding-bottom: 100rpx;">
     <view style="width:750rpx;height:{{statusBarHeight}}px"></view>
     <view class="title" style="width:750rpx;height:{{titleHeight}}px">
         <view>我的</view>
     </view>
+    <view class="part1">
+      <view class="UserImage">
+        <van-image round width="6rem" height="6rem" fit="cover" src="{{UserImage}}" />
+      </view>
+      <view class="user-info">
+        <view class="UserName">{{UserName}}</view>
+        <view class="UserId">个人编号：{{UserId}}</view>
+      </view>
+    </view>
+    <view class="item">
+        <view class="gridTitle">
+          我的订单
+        </view>
+        <van-grid gutter="1rem" square>
+        <!-- 使用宫格组件布局 -->
+        <!-- 间距为1rem，固定为正方形 -->
+        <van-grid-item icon="cloud://cloud1-7g5vke1x7dd05544.636c-cloud1-7g5vke1x7dd05544-1325794133/“我的”/待付款1.png" text="待付款"     
+          link-type="navigateTo"
+          url="/pages/index"/>
+        <van-grid-item icon="cloud://cloud1-7g5vke1x7dd05544.636c-cloud1-7g5vke1x7dd05544-1325794133/“我的”/待发货1.png" text="待发货" 
+          link-type="navigateTo"
+          url="/pages/WenChuang/WenChuang"/>
+        <van-grid-item icon="cloud://cloud1-7g5vke1x7dd05544.636c-cloud1-7g5vke1x7dd05544-1325794133/“我的”/待收获.png" text="待收货" 
+          link-type="navigateTo"
+          url="/pages/WenChuang/WenChuang"/>
+        <van-grid-item icon="cloud://cloud1-7g5vke1x7dd05544.636c-cloud1-7g5vke1x7dd05544-1325794133/“我的”/退款，售后.png" text="退款/售后" 
+          link-type="navigateTo"
+          url="/pages/WenChuang/WenChuang"/>
+        </van-grid>
+    </view>
+    <view class="item">
+        <view class="gridTitle">
+          我的应用
+        </view>
+        <van-grid gutter="1rem" square>
+        <!-- 使用宫格组件布局 -->
+        <!-- 间距为1rem，固定为正方形 -->
+        <van-grid-item icon="cloud://cloud1-7g5vke1x7dd05544.636c-cloud1-7g5vke1x7dd05544-1325794133/“我的”/账号设置.png" text="账号设置"     
+          link-type="navigateTo"
+          url="/pages/index"/>
+        <van-grid-item icon="cloud://cloud1-7g5vke1x7dd05544.636c-cloud1-7g5vke1x7dd05544-1325794133/“我的”/消息中心.png" text="消息中心" 
+          link-type="navigateTo"
+          url="/pages/WenChuang/WenChuang"/>
+        <van-grid-item icon="cloud://cloud1-7g5vke1x7dd05544.636c-cloud1-7g5vke1x7dd05544-1325794133/“我的”/景区门票.png" text="景区门票" 
+          link-type="navigateTo"
+          url="/pages/WenChuang/WenChuang"/>
+        <van-grid-item icon="cloud://cloud1-7g5vke1x7dd05544.636c-cloud1-7g5vke1x7dd05544-1325794133/“我的”/购物车.png" text="购物车" 
+          link-type="navigateTo"
+          url="/pages/WenChuang/WenChuang"/>
+        <van-grid-item icon="cloud://cloud1-7g5vke1x7dd05544.636c-cloud1-7g5vke1x7dd05544-1325794133/“我的”/客服.png" text="客服" 
+          link-type="navigateTo"
+          url="/pages/WenChuang/WenChuang"/>
+        <van-grid-item icon="cloud://cloud1-7g5vke1x7dd05544.636c-cloud1-7g5vke1x7dd05544-1325794133/“我的”/收货地址.png" text="收货地址"  
+          link-type="navigateTo"
+          url="/pages/WenChuang/WenChuang"/>
+        <van-grid-item icon="cloud://cloud1-7g5vke1x7dd05544.636c-cloud1-7g5vke1x7dd05544-1325794133/“我的”/积分商城.png" text="积分商城" 
+          link-type="navigateTo"
+          url="/pages/WenChuang/WenChuang"/>
+        </van-grid>
+    </view>
+    <view class="item">
+        <view class="gridTitle">
+          更多服务
+        </view>
+        <van-grid gutter="1rem" square>
+        <!-- 使用宫格组件布局 -->
+        <!-- 间距为1rem，固定为正方形 -->
+        <van-grid-item icon="cloud://cloud1-7g5vke1x7dd05544.636c-cloud1-7g5vke1x7dd05544-1325794133/“我的”/湄洲明信片.png" text="湄洲明信片"     
+          link-type="navigateTo"
+          url="/pages/index"/>
+        <van-grid-item icon="cloud://cloud1-7g5vke1x7dd05544.636c-cloud1-7g5vke1x7dd05544-1325794133/“我的”/我的奖品.png" text="我的奖品" 
+          link-type="navigateTo"
+          url="/pages/WenChuang/WenChuang"/>
+        </van-grid>
+    </view>
+
 </view>
