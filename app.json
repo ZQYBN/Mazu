@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/WenChuang/WenChuang",
     "pages/AI/AI",
+    "pages/WenChuang/WenChuang",
     "pages/index/index",
     "pages/logs/logs",
     "custom-tab-bar/index",
