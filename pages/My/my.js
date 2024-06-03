@@ -76,5 +76,26 @@ Page({
    */
   onShareAppMessage() {
 
-  }
+  },
+  uploadImg: function () {
+    console.log("上传图片")
+    var that = this;
+    wx.chooseMedia({
+        count: 1,
+        sizeType: ['original','compressed'],
+        sourceType: ['album', 'camera'],
+        success: function (res) {
+            const tempFilePaths = res.tempFiles[0].tempFilePath;
+            wx.showLoading({
+                title: '加载中...'
+            })
+            that.setData({
+                UserImage: tempFilePaths,
+                // 需要更改的图片地址
+                isUploaderShown: false,
+            })
+            wx.hideLoading()
+        }
+    })
+  },
 })

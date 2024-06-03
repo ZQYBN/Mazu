@@ -6,11 +6,14 @@
     </view>
     <view class="part1">
       <view class="UserImage">
-        <van-image round width="6rem" height="6rem" fit="cover" src="{{UserImage}}" />
+      <!-- 头像 -->
+        <van-image round width="6rem" height="6rem" fit="cover" bind:click="uploadImg" src="{{UserImage}}" />
       </view>
       <view class="user-info">
         <view class="UserName">{{UserName}}</view>
+        <!-- 用户名 -->
         <view class="UserId">个人编号：{{UserId}}</view>
+        <!-- ID -->
       </view>
     </view>
     <view class="item">
